@@ -1,0 +1,6 @@
+{
+    "marp.themes": [
+        "eudiegoborgs.css"
+    ],
+    "markdown.marp.theme": "eudiegoborgs"
+}
