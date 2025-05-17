@@ -242,7 +242,7 @@ _para novos postos de trabalho, precisamos pensar em programas_
 _para preparar a população para os novos postos de trabalho_
 
 ---
-
+_para concluir_
 ### use a IA como forma de maximizar seu resultado, 
 ### não como muleta.
 
