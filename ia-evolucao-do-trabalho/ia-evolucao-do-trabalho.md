@@ -237,10 +237,6 @@ _Para nutricionistas, uma vez que compreendido o plano alimentar, um cardapio cr
 
 ### sobre geração de novos postos de trabalho
 
-_Até 2030, vamos precisar requalificar 60Mi de trabalhadores_
-_para novos postos de trabalho, precisamos pensar em programas_
-_para preparar a população para os novos postos de trabalho_
-
 ---
 _para concluir_
 ### use a IA como forma de maximizar seu resultado, 
