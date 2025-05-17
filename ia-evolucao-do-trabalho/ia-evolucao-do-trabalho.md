@@ -1,15 +1,27 @@
 ---
 marp: true
 theme: eudiegoborgs
-paginate: true
+paginate: false
 ---
 
 # estamos com os dias contados? 
-_a relação da evolução das IA's com a extinção do trabalho humano_
+_a relação da evolução das IA's com a_ 
+_extinção do trabalho humano_
+
+<div style="position: absolute; top: 0; right: 0; width: 33%; height: 100vh;">
+
+![IA Dominando o mundo](./assets/banner.png)
+
+</div>
 
 ---
 
 ## oi, eu sou o Diego
+<div style="position: absolute; top: 10vh; right: 0; width: 60vh; height: 60vh;">
+
+![Diego Borges](./assets/diego.jpeg)
+
+</div>
 
 ---
 
