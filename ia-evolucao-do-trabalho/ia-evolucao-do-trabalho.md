@@ -184,11 +184,6 @@ _É uma discussão válida, mas não tem uma resposta simples_
 
 ---
 
-### além disso existe uma questão pública 
-### sobre geração de novos postos de trabalho
-
----
-
 ### a demanda por profissionais criativos vai só aumentar
 
 _Um exemplo que me marcou foi o caso de uma animação (não me recordo qual) que precisou ser simplificada porque seria inviável produzir episódios na velocidade necessária com o nível de detalhe original. Hoje, com IAs, esse problema pode ser superado. `A tecnologia nos permite escalar a produção de conteúdo criativo com mais qualidade.`_
@@ -235,6 +230,16 @@ _Para artistas, uma vez que os conceitos de uma série, os detalhes de um person
 ---
 
 _Para nutricionistas, uma vez que compreendido o plano alimentar, um cardapio criativo pode ser criado, para o advogado, uma vez que tem a tese de defesa, um bom documento pode ser escrito, etc_
+
+---
+
+### além disso existe uma questão pública
+
+### sobre geração de novos postos de trabalho
+
+_Até 2030, vamos precisar requalificar 60Mi de trabalhadores_
+_para novos postos de trabalho, precisamos pensar em programas_
+_para preparar a população para os novos postos de trabalho_
 
 ---
 
