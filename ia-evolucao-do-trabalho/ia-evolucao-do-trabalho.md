@@ -45,6 +45,14 @@ _antes de começar quero dizer que..._
 
 ---
 
+### É sempre assim: 
+## a gente vai ficando velho 
+## e o mundo vai ficando novo
+
+`Gilberto Gil`
+
+---
+
 ## motivação
 
 a cada novo modelo de IA lançado, a mesma pergunta retorna.
@@ -239,7 +247,7 @@ _criando"_
 
 ---
 
-_A IA não vai acabar com todas as profissões. Mas ela vai transformar profundamente como trabalhamos. O profissional que ignorar esse movimento vai ficar obsoleto._
+_A IA não vai acabar com todas as profissões. Mas ela vai transformar profundamente como trabalhamos. O profissional que ignorar esse movimento vai ficar `obsoleto`._
 
 ---
 
