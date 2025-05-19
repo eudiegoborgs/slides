@@ -220,6 +220,20 @@ Para gerar uma serie de quadrinhos de 10 frames eu precisei de cerca de **4 hora
 
 --- 
 
+_Prompt:_
+_"Faça uma imagem para story de quadrinhos_
+_do Diego lendo um livro cuja a capa diz "Como corrigir_
+_bugs", ele abre o livro e na primeira página tá escrito_
+_criando"_
+
+<div style="position: absolute; top: 10vh; right:10vh; width: 40vh;">
+
+![Diego Borges](./assets/bug.png)
+
+</div>
+
+---
+
 ## Isso me mostrou que o trabalho intelectual, 
 ## de entendimento, de visão criativa, ainda é insubstituível
 
