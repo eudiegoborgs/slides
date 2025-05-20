@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: phpmg
+theme: eudiegoborgs
 paginate: false
 ---
 
