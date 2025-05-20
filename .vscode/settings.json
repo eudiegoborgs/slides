@@ -1,5 +1,7 @@
 {
     "markdown.marp.themes": [
-        "./eudiegoborgs.css"
+        "./eudiegoborgs.css",
+        "./picpay.css",
+        "./phpmg.css",
     ]
 }

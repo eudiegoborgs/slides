@@ -1,11 +1,11 @@
-/* @theme eudiegoborgs */
+/* @theme phpmg */
 @import 'default';
 
 :root {
-    --background: #121212;
-    --text: #ffffff;
-    --heading: #00e0ff;
-    --accent: #ff4081;
+    --background: #ffffff;
+    --text: #121212;
+    --heading: #C8706E;
+    --accent: #F60000;
     --code-bg: #1e1e1e;
     --code-color: #c0c0c0;
 }
@@ -30,7 +30,8 @@ h2 {
     color: var(--heading);
 }
 
-a, h3 {
+a,
+h3 {
     color: var(--accent);
 }
 

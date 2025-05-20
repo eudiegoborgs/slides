@@ -1,11 +1,11 @@
-/* @theme eudiegoborgs */
+/* @theme picpay */
 @import 'default';
 
 :root {
-    --background: #121212;
-    --text: #ffffff;
-    --heading: #00e0ff;
-    --accent: #ff4081;
+    --background: #ffffff;
+    --text: #121212;
+    --heading: #238662;
+    --accent: #50D67B;
     --code-bg: #1e1e1e;
     --code-color: #c0c0c0;
 }

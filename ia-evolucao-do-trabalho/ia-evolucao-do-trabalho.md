@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: eudiegoborgs
+theme: phpmg
 paginate: false
 ---
 
@@ -210,7 +210,16 @@ _Um exemplo que me marcou foi o caso de uma animação (não me recordo qual) qu
 
 ---
 
-### mesmo com todo esse potencial, IA's ainda tem grandes limitações
+### mesmo com todo esse potencial, 
+### IA's ainda tem grandes limitações
+
+---
+
+<div style="width: 55vh; margin: 0 auto;">
+
+![Klarna](./assets/klarna.jpeg)
+
+</div>
 
 ---
 
