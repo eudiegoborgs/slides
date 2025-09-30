@@ -33,6 +33,17 @@ _extinção do trabalho humano_
 - tech manager de um **time incrível**
 - e muitas outras coisas... 🍕🍰🍫🍖🌕🎸🚗🏍️🐶♾️
 
+<div style="position: absolute; top: 10vh; right: 5vh; width: 300px;">
+
+![Familia](./assets/familia.jpeg)
+
+</div>
+<div style="position: absolute; top: 50vh; right: 5vh; width: 300px;">
+
+![equipe](./assets/equipe.jpeg)
+
+</div>
+
 ---
 
 <div style="text-align: center; width: 100%">
