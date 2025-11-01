@@ -899,7 +899,7 @@ class UserRepository {
 ❌ Domínio depender de Framework
 ❌ Domínio depender de Banco
 
-_O dominico se comunica com o mundo através de contratos_
+_O dominio se comunica com o mundo através de contratos_
 
 ---
 
