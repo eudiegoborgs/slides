@@ -40,3 +40,9 @@ code {
     padding: 0.2em 0.4em;
     border-radius: 4px;
 }
+
+/* Tokens de sintaxe em preto para melhor contraste */
+pre code, table {
+    color: #000000;
+    text-align: left;
+}
