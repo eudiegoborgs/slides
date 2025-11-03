@@ -39,6 +39,20 @@ paginate: false
 
 ---
 
+### Workshop de 
+## Arquitetura Evolutiva
+_Construindo software que escala na hora certa_
+
+---
+
+### Importante:
+_O conteúdo é denso e tem muitos tópicos importantes a serem explorados._
+Dito isso:
+- Se algo estiver repetitivo ou for mais do mesmo, levante a mão e caso + 70% do grupo concorde pulamos o tema
+- Se não concluirmos o conteúdo hoje, agendaremos a apresentação restante online.
+
+---
+
 # Tomada de Decisões Técnicas
 
 ---
@@ -55,8 +69,7 @@ paginate: false
 _"Vamos usar microserviços!"_
 
 ✅ **Faça:**
-_"Temos 3 devs, 100 usuários/dia, pouco dinheiro investido e precisamos entregar em um prazo curto..._
-_Monolito modular faz sentido agora"_
+_"Temos 3 devs, 100 usuários/dia, pouco dinheiro investido e precisamos entregar em um prazo curto... Monolito modular faz sentido agora"_
 
 ---
 
@@ -83,8 +96,7 @@ _Proposito importa!_
 _"Precisamos migrar para Kubernetes"_
 
 ✅ **Faça:**
-_"Por que precisamos de Kubernetes?_
-_Qual problema ele resolve?"_
+_"Por que precisamos de Kubernetes? Qual problema ele resolve?"_
 
 ---
 
@@ -114,16 +126,6 @@ _"Netflix usa, vamos usar também"_
 _"Netflix tem 10k+ devs e milhões de acessos simultaneos._
 _Nós temos 5 devs e 100 usuários por dia. Não é o mesmo contexto"_
 
----
-
-## Síndrome do Utopico
-
-🦄 _"Funciona no Google..."_
-
-- Google ≠ Sua empresa
-- Spotify ≠ Sua empresa
-- Amazon ≠ Sua empresa
-
 _Empresas grandes tem problemas diferentes, entenda o proposito de cada solução e adapte ao **SEU** contexto_
 
 ---
@@ -145,14 +147,6 @@ _Empresas grandes tem problemas diferentes, entenda o proposito de cada soluçã
 
 ---
 
-**❌ Problema Imaginário:**
-- "E se no futuro..."
-- "Talvez um dia..."
-- Sem evidências
-- Solução orientada a desejo
-
----
-
 ## Foque no Presente
 
 **✅ Problema Real:**
@@ -167,13 +161,7 @@ _Empresas grandes tem problemas diferentes, entenda o proposito de cada soluçã
 ## Não Esteja Só
 
 _"Tudo parece certo_
-_até que alguém venha questionar."_
-
-**Provérbios 18:17**
-
----
-
-## Evitar Estar Só
+_até que alguém venha questionar. - **Provérbios 18:17**"_
 
 - Busque perspectivas diferentes
 - Code review como conversa
@@ -184,14 +172,11 @@ _até que alguém venha questionar."_
 
 ## Três Tipos de Escalabilidade
 
-**Código** 📝
-- A complexidade da realização das tarefas é resultado de decisões arquiteturais?
+**Código** 📝: _A complexidade da realização das tarefas é resultado de decisões arquiteturais?_
 
-**Pessoas** 👥
-- Novas pessoas são capazes de manter e evoluit seu projeto?
+**Pessoas** 👥: _Novas pessoas são capazes de manter e evoluir seu projeto?_
 
-**Carga** 📊
-- O projeto se mantem disponivel quando a demanda por ele cresce?
+**Carga** 📊: _O projeto se mantem disponivel quando a demanda por ele cresce?_
 
 ---
 
@@ -204,19 +189,15 @@ _Escalabilidade no dia 0 é sobre time e código, nunca sobre carga_
 
 ## Código é Bagagem
 
+_Vou usar Value Object e Command Bus nesse crud de cadastro de clientes._
+
+**Resolutado: Código verboso sem resolver problema real**
+
 - Mais código = mais manutenção
 - Mais código = mais bugs
 - Mais código = mais complexidade
 
-**S preocupe menos código, e mais com o valor**
-
----
-
-## Código é Bagagem
-
-_Vou usar Value Object e Command Bus nesse crud de cadastro de clientes._
-
-**Resolutado: Código verboso sem resolver problema real**
+**Pode parecer contra intuitivo, mas se preocupe menos código, e mais com o valor que ele entrega**
 
 ---
 
@@ -230,41 +211,13 @@ _Vou usar Value Object e Command Bus nesse crud de cadastro de clientes._
 
 ---
 
-## Débito Técnico Pagável
-
-💳 **Como dívida financeira**
-
-- Pode ser estratégico
-- Deve ter prazo
-- Precisa estar visível
-- Não pode virar calote
-
----
-
 ## Evite o HDD
 
-**Hype Driven Development**
-
-_ou_
-
-**DOL - Desenvolvimento Orientado a Legalzismo**
-
----
-
-## O Problema do HDD
+**Hype Driven Development** _ou_ **DOL - Desenvolvimento Orientado a Legalzismo**
 
 ❌ Nova tech por ser "cool", sem maturidade e ecossistema
 ❌ Resolver problema inexistente causa complexidade acidental
 ❌ Ignorar custo de adoção e equipe despreparada
-
----
-
-## Pergunte Sempre
-
-- Resolve nosso problema?
-- Vale o custo?
-- Time está pronto?
-- É reversível?
 
 ---
 
@@ -313,26 +266,6 @@ _Reduz custo de mudança_
 
 ---
 
-## Pratique Reversibilidade
-
-✅ Deploy sem downtime
-✅ Database migrations reversíveis
-✅ API versionada
-✅ Configuração externa
-
----
-
-## Onde aplicamos reversibilidade?
-
-- Mudar biblioteca
-- Refatorar código
-- Ajustar algoritmo
-- Configurar feature
-
-_Experimente sem medo!_
-
----
-
 ## Decisões Irreversíveis
 ### One way door 🚪➡️
 
@@ -347,45 +280,12 @@ _Alto custo de mudança_
 - Quais as alternativas?
 - Qual o trade-off?
 
----
-
-## Como Lidar com Irreversível
-
 **2. Busque consenso** 👥
 
-- Envolva o time
-- Ouça objeções
-- Valide com stakeholders
-
----
-
-## Como Lidar com Irreversível
+- Envolva o time e valide riscos com stakeholders
 
 **3. Faça PoC** 🧪
-- Teste em pequena escala
-- Valide hipóteses
-- Meça riscos reais
-
----
-
-## Como Lidar com Irreversível
-
-**4. Tenha plano B** 🔄
-- Estratégia de contingência
-- Como minimizar danos?
-- Quanto custa falhar?
-
----
-
-## Estratégia: One-Way Door
-
-**Antes de atravessar:**
-
-1. Está certo do problema?
-2. Avaliou alternativas?
-3. Entende o custo?
-4. Time está alinhado?
-5. Tem como testar?
+- Teste em pequena escala, valide hipóteses e meça riscos reais
 
 ---
 
@@ -425,10 +325,10 @@ _Mesmo o "irreversível" pode ser amenizado_
 
 ## Exemplo: Argumentação Boa
 
-✅ _"Deploy leva 45min e impacta 3 times._
+✅ _Proposta: Modularizar em 4 serviços._
+_Deploy leva 45min e impacta 3 times._
 _Monorepo com 500k linhas._
-_Proposta: Modularizar em 4 serviços._
-_Trade-off: Complexidade operacional vs agilidade"_
+_Trade-off: Complexidade operacional vs agilidade_
 
 **Por quê funciona:**
 - Dados concretos (45min, 3 times)
@@ -494,19 +394,6 @@ _Reduz review para ~1h, melhora testes"_
 
 ---
 
-## Exemplo Real: Nova Tech
-
-❌ **Ruim:**
-_"GraphQL é melhor que REST"_
-
-✅ **Bom:**
-_"Mobile faz 8 requests/tela, 2s carregamento._
-_GraphQL: 1 request, ~500ms._
-_Trade-off: Time precisa aprender, 2 semanas ramp-up._
-_Ganho: UX melhor, menos banda mobile"_
-
----
-
 ## Evite Armadilhas
 
 ❌ Apelo à autoridade
@@ -536,27 +423,7 @@ _"Eu acho que..."_
 
 _Você não vai precisar disso_
 
----
-
-## Princípio YAGNI
-
-- Construa o necessário
-- Não antecipe funcionalidades
-- Evite especulação
-- Código futuro = desperdício
-
----
-
-## Quando Aplicar YAGNI
-
-✅ Features não solicitadas
-✅ Abstrações prematuras
-✅ "E se no futuro..."
-✅ Over-engineering
-
----
-
-## Quando NÃO é YAGNI
+Quando NÃO é YAGNI?
 
 _Quando tem proposito claro_
 
@@ -569,7 +436,6 @@ _Quando tem proposito claro_
 3. Evite HDD
 4. Prefira reversível
 5. Argumente com dados
-6. Pratique YAGNI
 
 ---
 
@@ -948,350 +814,6 @@ _Não precisa de Clean Architecture no dia 0_
 
 ---
 
-## Padrões Essenciais
-
-**Repository** 📦
-- Abstrai acesso a dados
-
-**Factory** 🏭
-- Criação de objetos complexos, só para objetos complexos
-
-**Service** 🎯
-- Isolar regras de negocio, quando existirem
-
----
-
-## Exemplo: Repository
-
-❌ **Sem padrão:**
-```php
-// controller acessa BD diretamente
-$users = $db->query("SELECT * FROM users");
-```
-
-✅ **Com Repository:**
-```php
-// controller usa abstração
-$users = $userRepository->findAll();
-
-// implementação isolada
-class UserRepository {
-    public function findAll() {
-        return $this->db->query("SELECT * FROM users");
-    }
-}
-```
-
----
-
-## Exemplo: Strategy
-
-**Problema:** Múltiplos métodos de pagamento
-
-```php
-class PagamentoService {
-    public function processar($metodo, $valor) {
-        if ($metodo == "credito") {
-            // lógica cartão
-        } elseif ($metodo == "pix") {
-            // lógica pix
-        }
-        // muito if/else!
-    }
-}
-```
-
----
-
-## Exemplo: Strategy
-
-✅ **Com Strategy:**
-```php
-class PagamentoCredito {
-    public function processar($valor) { /* ... */ }
-}
-
-class PagamentoPix {
-    public function processar($valor) { /* ... */ }
-}
-
-// uso
-$estrategia = $estrategias[$metodo];
-$estrategia->processar($valor);
-```
-
-Adicionar novo método = nova classe
-
----
-
-## Exemplo Completo: Strategy
-
-**Contexto:** Sistema de cálculo de frete
-
-```php
-// Interface Strategy
-interface CalculadoraFrete {
-    public function calcular($peso, $distancia);
-}
-
-// Estratégias Concretas
-class FreteExpresso implements CalculadoraFrete {
-    public function calcular($peso, $distancia) {
-        return $peso * 2.5 + $distancia * 0.8;
-    }
-}
-
-class FreteEconomico implements CalculadoraFrete {
-    public function calcular($peso, $distancia) {
-        return $peso * 1.0 + $distancia * 0.3;
-    }
-}
-```
-
----
-
-## Exemplo Completo: Strategy
-
-```php
-// Context - usa a estratégia
-class PedidoService {
-    private $calculadoraFrete;
-    
-    public function setCalculadora(CalculadoraFrete $calc) {
-        $this->calculadoraFrete = $calc;
-    }
-    
-    public function calcularFrete($pedido) {
-        return $this->calculadoraFrete->calcular(
-            $pedido->peso,
-            $pedido->distancia
-        );
-    }
-}
-
-// Uso
-$service = new PedidoService();
-$service->setCalculadora(new FreteExpresso());
-$frete = $service->calcularFrete($pedido);
-```
-
----
-
-## Pattern: Service Layer
-
-**Organiza lógica de negócio em serviços**
-
-✅ **Quando usar:**
-- Orquestrar múltiplas operações
-- Lógica complexa que não cabe em um Model
-- Reutilizar lógica entre controllers
-
----
-
-## Exemplo: Service Layer
-
-❌ **Sem Service:**
-```php
-// Controller faz tudo
-class PedidoController {
-    public function criar(Request $request) {
-        // validar pedido
-        // calcular total
-        // verificar estoque
-        // processar pagamento
-        // enviar email
-        // atualizar estoque
-        // salvar pedido
-        // muito código no controller!
-    }
-}
-```
-
----
-
-## Exemplo: Service Layer
-
-✅ **Com Service:**
-```php
-class PedidoService {
-    public function criarPedido($dados) {
-        $pedido = $this->validarDados($dados);
-        $this->verificarEstoque($pedido);
-        $this->processarPagamento($pedido);
-        $this->salvarPedido($pedido);
-        $this->notificarCliente($pedido);
-        $this->atualizarEstoque($pedido);
-        
-        return $pedido;
-    }
-    
-    private function validarDados($dados) { /* ... */ }
-    private function verificarEstoque($pedido) { /* ... */ }
-    // etc...
-}
-```
-
----
-
-## Exemplo: Service Layer
-
-```php
-// Controller limpo
-class PedidoController {
-    private $pedidoService;
-    
-    public function __construct(PedidoService $service) {
-        $this->pedidoService = $service;
-    }
-    
-    public function criar(Request $request) {
-        try {
-            $pedido = $this->pedidoService->criarPedido(
-                $request->all()
-            );
-            return response()->json($pedido, 201);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
-        }
-    }
-}
-```
-
----
-
-## Service vs Repository
-
-**Repository** 📦
-- Acesso a dados (CRUD)
-- Abstrai persistência
-
-**Service** 🔧
-- Lógica de negócio
-- Orquestra operações
-- Usa repositories
-
----
-
-## Service vs Repository
-
-```php
-class PedidoService {
-    private $pedidoRepo;
-    private $estoqueRepo;
-    private $pagamentoService;
-    
-    // Service usa repositories
-    public function criarPedido($dados) {
-        $pedido = $this->pedidoRepo->criar($dados);
-        $this->estoqueRepo->atualizar($pedido->items);
-        // ...
-    }
-}
-```
-
----
-
-## Pattern: Factory
-
-**Centraliza criação de objetos complexos**
-
-✅ **Quando usar:**
-- Criação de objetos tem lógica complexa
-- Múltiplas variações do mesmo tipo
-- Esconder implementação concreta
-
----
-
-## Exemplo: Factory
-
-❌ **Sem Factory:**
-```php
-// Cliente cria objetos diretamente
-class PedidoController {
-    public function processar($tipo, $dados) {
-        if ($tipo == 'nacional') {
-            $calculadora = new CalculadoraFreteNacional();
-            $calculadora->setTabela('Correios');
-            $calculadora->setSeguro(true);
-        } elseif ($tipo == 'internacional') {
-            $calculadora = new CalculadoraFreteInternacional();
-            $calculadora->setMoeda('USD');
-            $calculadora->setTaxas(['importacao', 'aduana']);
-        }
-        // Muita responsabilidade!
-    }
-}
-```
-
----
-
-## Exemplo: Factory
-
-✅ **Com Factory:**
-```php
-class CalculadoraFreteFactory {
-    public function criar($tipo) {
-        switch ($tipo) {
-            case 'nacional':
-                $calc = new CalculadoraFreteNacional();
-                $calc->setTabela('Correios');
-                $calc->setSeguro(true);
-                return $calc;
-                
-            case 'internacional':
-                $calc = new CalculadoraFreteInternacional();
-                $calc->setMoeda('USD');
-                $calc->setTaxas(['importacao', 'aduana']);
-                return $calc;
-                
-            default:
-                throw new Exception("Tipo inválido");
-        }
-    }
-}
-```
-
----
-
-## Exemplo: Factory
-
-```php
-// Cliente usa a Factory
-class PedidoController {
-    private $freteFactory;
-    
-    public function __construct(CalculadoraFreteFactory $factory) {
-        $this->freteFactory = $factory;
-    }
-    
-    public function processar($tipo, $dados) {
-        // Criação delegada à Factory
-        $calculadora = $this->freteFactory->criar($tipo);
-        
-        $frete = $calculadora->calcular($dados);
-        return response()->json(['frete' => $frete]);
-    }
-}
-```
-
-Controller não conhece implementações concretas!
-
----
-
-## Factory Method vs Abstract Factory
-
-**Factory Method** 🏭
-- Um método que cria objetos
-- Subclasses decidem qual classe instanciar
-
-**Abstract Factory** 🏢
-- Família de objetos relacionados
-- Interface para criar famílias inteiras
-
-_Para começar, use Factory Method simples_
-
----
-
 ## Quando Usar Padrões?
 
 ✅ **Use quando:**
@@ -1387,56 +909,11 @@ _"Não havia conhecimento no momento da decisão nem estratégia a partir do con
 
 ---
 
-## Registrando Débitos
-
-**Use TODO/FIXME no código:**
-```php
-// TODO: Refatorar para usar Strategy pattern
-// Motivo: Lógica de pagamento está crescendo
-// Impacto: Dificulta adicionar novos métodos
-// Estimativa: 2 dias
-```
-
-**Ou issues no projeto:**
-- Tag comum
-- Prioridade vs features
-- Estimativa de custo
-
----
-
 ## Estratégia: Quadrante de Débito
 |                   | Alta frequencia                 | Baixa frequncia  |
 |-------------------|---------------------------------|------------------|
 |**Alto Impacto**   | Refatore AGORA                  | Agende Sprint    |
 |**Baixo Impacto**  | Próxima vez que mexer           | Ignore           |
-
----
-
-## Pagando Débitos
-
-**Estratégias:**
-
-**Regra de escoteiro** 🏕️
-- Melhore ao passar pelo código
-
-**Refactoring Sprints** 🏃
-- Dedique tempo específico para refatorar item crítico
-
-**20% Time** ⏰
-- 1 dia/semana para qualidade
-
----
-
-## Exemplo Prático
-
-**Débito:** Classe com 1000 linhas
-
-**Impacto:** Alto (mexem sempre)
-**Frequência:** Alta (toda sprint)
-
-**Ação:** Refatore AGORA
-- Extrair 5 classes
-- Adicionar testes
 
 ---
 
@@ -1651,23 +1128,6 @@ interface StringHelper {
 **Regra:** YAGNI - You Aren't Gonna Need It
 
 ---
-
-## Quando Usar Indireção?
-
-✅ **Use quando:**
-- Múltiplas implementações possíveis
-- Precisa substituir em testes
-- Isolar dependências externas
-- Facilitar evolução futura
-
-```php
-// Bom uso de indireção
-interface PaymentGateway {
-    public function processar($valor, $cartao);
-}
-
-// PagSeguro, MercadoPago, Stripe...
-```
 
 ---
 
@@ -1934,126 +1394,6 @@ Uma requisição! Formato customizado! Desacoplado!
 
 ---
 
-## Solução Alternativa: Camada de Tradução
-
-**Adapter/Translator Pattern**
-
-✅ **Para casos mais simples:**
-```php
-// Camada de tradução entre backend e frontend
-class ProdutoTranslator {
-    public function paraFrontend(Produto $produto): array {
-        return [
-            'id' => $produto->id,
-            'titulo' => $produto->nome,
-            'valorFinal' => $produto->precoComDesconto(),
-            'valorOriginal' => $produto->preco,
-            'temEstoque' => $produto->estoque > 0,
-            'imagemPrincipal' => $produto->imagens()
-                ->where('principal', true)
-                ->first()
-                ?->url
-        ];
-    }
-    
-    public function paraBackend(array $dados): array {
-        return [
-            'nome' => $dados['titulo'],
-            'preco' => $dados['valorFinal'],
-            'estoque' => $dados['temEstoque'] ? 1 : 0
-        ];
-    }
-}
-```
-
----
-
-## Exemplo: Translator
-
-✅ **Uso da camada de tradução:**
-```php
-class ProdutoController {
-    private $translator;
-    
-    public function show($id) {
-        $produto = Produto::findOrFail($id);
-        
-        // Traduz para formato do frontend
-        return $this->translator->paraFrontend($produto);
-    }
-    
-    public function update(Request $request, $id) {
-        // Traduz do frontend para backend
-        $dados = $this->translator->paraBackend($request->all());
-        
-        Produto::findOrFail($id)->update($dados);
-    }
-}
-```
-
-Backend e frontend com nomenclaturas diferentes!
-
----
-
-## BFF vs Translator: Quando Usar?
-
-**BFF** 🏭
-- Múltiplos frontends (web, mobile, desktop)
-- Precisa agregar dados de vários serviços
-- Lógica específica por plataforma
-- Otimização de performance (menos chamadas)
-
-**Translator** 🔄
-- Apenas diferença de nomenclatura/estrutura
-- Backend e frontend no mesmo domínio
-- Transformação simples de dados
-- Manter compatibilidade durante migração
-
----
-
-## Exemplo Real: BFF Mobile vs Web
-
-```php
-// BFF para Mobile - menos dados, otimizado para 3G/4G
-class ProdutoMobileBffController {
-    public function show($id) {
-        return [
-            'id' => $produto->id,
-            'nome' => $produto->nome,
-            'preco' => $produto->precoFinal(),
-            'thumb' => $produto->thumbnail('small'), // Imagem menor
-            'estoque' => $produto->temEstoque()
-            // Só o essencial!
-        ];
-    }
-}
-```
-
----
-
-## Exemplo Real: BFF Mobile vs Web
-
-```php
-// BFF para Web - mais dados, imagens maiores
-class ProdutoWebBffController {
-    public function show($id) {
-        return [
-            'id' => $produto->id,
-            'nome' => $produto->nome,
-            'descricao' => $produto->descricaoCompleta(),
-            'preco' => $produto->precoFinal(),
-            'imagens' => $produto->imagens('large'), // Múltiplas imagens
-            'estoque' => $produto->quantidadeEstoque(),
-            'avaliacoes' => $produto->avaliacoes(10),
-            'similares' => $produto->similares(8)
-            // Mais detalhes!
-        ];
-    }
-}
-```
-
----
-
 ## Sinais de Acoplamento Espacial
 
 🚨 **Cuidado quando:**
@@ -2080,55 +1420,6 @@ class ProdutoWebBffController {
 ❌ **Problema:**
 - Operação só funciona em horário específico
 - Sincronização forçada
-
----
-
-## Exemplo: Acoplamento Temporal
-
-❌ **Ruim (dependência temporal):**
-```php
-class RelatorioService {
-    public function gerarRelatorio() {
-        // Depende de job que roda à meia-noite
-        $cache = Cache::get('dados_processados');
-        
-        if (empty($cache)) {
-            throw new Exception(
-                'Dados não disponíveis. ' .
-                'Execute o job noturno primeiro!'
-            );
-        }
-        
-        return $this->formatarRelatorio($cache);
-    }
-}
-```
-
-Só funciona depois do job rodar!
-
----
-
-## Exemplo: Acoplamento Temporal
-
-✅ **Melhor (independente):**
-```php
-class RelatorioService {
-    public function gerarRelatorio() {
-        // Busca dados sob demanda
-        $dados = Cache::get('dados_processados');
-        
-        if (empty($dados)) {
-            // Processa agora se necessário
-            $dados = $this->processarDados();
-            Cache::put('dados_processados', $dados);
-        }
-        
-        return $this->formatarRelatorio($dados);
-    }
-}
-```
-
-Funciona a qualquer momento!
 
 ---
 
@@ -2227,206 +1518,19 @@ class ProcessarPagamentoJob {
 ✅ **Estratégias:**
 
 **1. Processamento assíncrono:**
-- Jobs/Queues
-- Event-driven architecture
-- Message brokers (RabbitMQ, Kafka)
+- Jobs/Queues, Event-driven architecture e Message brokers (RabbitMQ, Kafka)
 
 **2. Idempotência:**
-- Operações podem ser repetidas
-- Mesmo resultado independente de quando
 
 **3. Eventual consistency:**
-- Não precisa ser imediato
-- Sistema converge para estado consistente
-
----
-
-## Idempotência: Exemplo
-
-✅ **Operação idempotente:**
-```php
-class PagamentoService {
-    public function processar($pedidoId, $idempotencyKey) {
-        // Verifica se já processou
-        $existente = Pagamento::where([
-            'pedido_id' => $pedidoId,
-            'idempotency_key' => $idempotencyKey
-        ])->first();
-        
-        if ($existente) {
-            return $existente; // Mesmo resultado
-        }
-        
-        // Processa apenas uma vez
-        $pagamento = $this->gateway->cobrar($pedidoId);
-        $pagamento->idempotency_key = $idempotencyKey;
-        $pagamento->save();
-        
-        return $pagamento;
-    }
-}
-```
-
----
-
-## Dependência de Disponibilidade
-
-**Serviço A precisa que Serviço B esteja disponível**
-
-❌ **Problema:**
-- Chamada síncrona cria dependência temporal
-- Se B cair, A também falha
-- Timeout e degradação de performance
-- Efeito cascata (circuit breaker)
-
----
-
-## Exemplo: Dependência Síncrona
-
-❌ **Serviço acoplado temporalmente:**
-```php
-class PedidoService {
-
-    public function finalizar($pedido) {
-        // PRECISA que todos os serviços estejam UP!
-        // Se Estoque cair = Pedido falha
-        $this->estoqueApi->reservar($pedido->items);
-        // Se Pagamento cair = Pedido falha
-        $this->pagamentoApi->cobrar($pedido->total);
-        // Se Notificação cair = Pedido falha
-        $this->notificacaoApi->enviarEmail($pedido->cliente);
-        return $pedido;
-    }
-}
-```
-
-**1 serviço fora = sistema inteiro para!** 🔥
-
----
-
-## Exemplo: Dependência Síncrona
-
-❌ **Problema real:**
-```php
-// Timeout em cascata
-try {
-    // Estoque demora 30s para responder
-    $this->estoqueApi->reservar($items); // Timeout!
-} catch (TimeoutException $e) {
-    // Pedido inteiro falha
-    // Cliente recebe erro genérico
-    // Não sabemos em qual estado ficou
-}
-
-// Se 1 de 3 serviços está lento:
-// - Usuário espera 30+ segundos
-// - Sistema congestionado
-// - Experiência ruim
-```
-
----
-
-## Solução: Comunicação Assíncrona
-
-**Desacoplar temporalmente com mensageria**
-
-✅ **Benefícios:**
-- Serviços independentes
-- Resiliência a falhas
-- Processamento paralelo
-- Retry automático
-- Sistema não para se um serviço cair
+- Não precisa ser imediato e o sistema converge para estado consistente
 
 --- 
-
-## Estratégias de Resiliência
-
-✅ **Quando usar assíncrono:**
-
-**1. Circuit Breaker:**
-```php
-// Se serviço falhar 5x, para de chamar por 1 min
-if ($this->circuitBreaker->isOpen('pagamento-api')) {
-    // Envia para fila ao invés de chamar direto
-    Queue::push(new ProcessarPagamentoJob($pedido));
-    return;
-}
-```
-
----
-
-## Estratégias de Resiliência
-
-**2. Retry com Backoff:**
-```php
-// Tenta novamente com delay exponencial
-Queue::later(
-    now()->addSeconds(2 ** $this->attempts), 
-    new ProcessarPagamentoJob($pedido)
-);
-```
-
----
-
-## Estratégias de Resiliência
-
-✅ **3. Dead Letter Queue:**
-```php
-class ProcessarPedidoJob {
-    public function failed(Exception $e) {
-        // Após todas as tentativas falharem
-        // Move para fila de erro para análise manual
-        Queue::push(
-            new ArmazenarErroJob([
-                'pedido_id' => $this->pedidoId,
-                'erro' => $e->getMessage(),
-                'stack_trace' => $e->getTraceAsString()
-            ]),
-            'dead-letter-queue'
-        );
-        
-        // Notifica equipe
-        Slack::send('Pedido ' . $this->pedidoId . ' falhou!');
-    }
-}
-```
-
----
-
-## Comparação: Síncrono vs Assíncrono
-
-| Aspecto | Síncrono | Assíncrono |
-|---------|----------|------------|
-| **Resposta** | Imediata | Eventual |
-| **Acoplamento** | Alto | Baixo |
-| **Disponibilidade** | Depende de tudo | Independente |
-| **Complexidade** | Simples | Maior |
-| **Debugging** | Fácil | Mais difícil |
-| **Resiliência** | Baixa | Alta |
-| **Performance** | Pode degradar | Melhor |
-
----
-
-## Quando Usar Cada Abordagem?
-
-**Síncrono** ⚡
-- Resposta imediata necessária
-- Operação simples e rápida
-- Não pode falhar (crítico)
-- Exemplo: Autenticação, validação
-
-**Assíncrono** 🔄
-- Operação demorada (>500ms)
-- Pode falhar e retentar
-- Múltiplos consumidores
-- Exemplo: Emails, relatórios, integrações
-
----
 
 ## Sinais de Acoplamento Temporal
 
 🚨 **Cuidado quando:**
-- "Execute isso apenas após horário X"
+- "Execute isso apenas até o horário X"
 - Timeouts frequentes
 - Falhas intermitentes (race conditions)
 - Operações dependem de cron/scheduler
@@ -2475,6 +1579,10 @@ causado por 2 tipos acoplamentos
 - Performance degradada
 - Difícil de escalar
 
+---
+
+## Por Que Mensageria?
+
 ✅ **Com mensageria:**
 - Serviços independentes
 - Alta disponibilidade
@@ -2490,10 +1598,18 @@ causado por 2 tipos acoplamentos
 - Mensagem processada exatamente uma vez
 - Ordem garantida (FIFO)
 
+---
+
+## Conceitos Fundamentais
+
 **Pub/Sub (Publicação/Assinatura)** 📢
 - Broadcast (1 produtor → N consumidores)
 - Mensagem pode ser consumida múltiplas vezes
 - Consumidores independentes
+
+---
+
+## Conceitos Fundamentais
 
 **Message Broker** 🏢
 - Intermediário que gerencia mensagens
@@ -2894,48 +2010,16 @@ Cada uma com seus tradeoffs...
 
 ---
 
-## Como Escolher?
-
-**RabbitMQ** 🐰
-- Filas tradicionais
-- Roteamento complexo
-- Precisa de garantias
-
----
-
-## Como Escolher?
-
-**Kafka** 🔥
-- Streaming de dados
-- Event sourcing
-- Milhões de mensagens
-
----
-
-## Como Escolher?
-
-**Redis** ⚡
-- Notificações rápidas
-- Já usa Redis
-- Não é crítico
-
----
-
-## Como Escolher?
-
-**AWS SQS/SNS** ☁️
-- Gerenciado pela AWS
-- Escalabilidade automática
-- Sem manutenção
-
----
-
 ## Dead Letter Queue (DLQ)
 
 **O que é?**
 - Fila especial para mensagens que falham
 - Evita perder mensagens problemáticas
 - Permite análise e reprocessamento
+
+---
+
+## Dead Letter Queue (DLQ)
 
 **Quando uma mensagem vai pra DLQ?**
 - Excede número máximo de tentativas
@@ -3105,11 +2189,14 @@ Tentativa 4: falha → DLQ
 ## Por Que Testar?
 
 ❌ **Sem testes:**
-- Medo de fazer mudanças
-- Bugs em produção
+- Medo de fazer mudanças e colocar bugs em produção
 - Regressões constantes
 - Código acoplado (difícil de testar)
 - Deploys arriscados
+
+---
+
+## Por Que Testar?
 
 ✅ **Com testes:**
 - Confiança para refatorar
@@ -3184,10 +2271,6 @@ Tentativa 4: falha → DLQ
 /----------------------\
 ```
 
-**Base larga:** Muitos testes unitários (+ barato e rápido)
-**Meio:** Testes de integração
-**Topo:** Testes E2E (+ caro e lento)
-
 ---
 
 ## Pirâmide de Testes: Detalhes
@@ -3220,114 +2303,6 @@ Tentativa 4: falha → DLQ
 
 ---
 
-## Exemplo: Teste Unitário
-
-Rápido! Isolado! Específico!
-
-```php
-class CalculadoraDescontoTest extends TestCase {
-    public function testDescontoVIP() {
-        $calc = new CalculadoraDesconto();
-        $resultado = $calc->calcular(100, 'vip');
-        $this->assertEquals(80, $resultado); // 20% desconto
-    }
-    
-    public function testDescontoInvalido() {
-        $calc = new CalculadoraDesconto();
-        $this->expectException(InvalidArgumentException::class);
-        $calc->calcular(100, 'invalido');
-    }
-}
-```
-
-
----
-
-## Exemplo: Teste de Integração
-
-```php
-class PedidoServiceIntegrationTest extends TestCase {
-    use RefreshDatabase; // Limpa DB entre testes
-    
-    public function testCriarPedidoComEstoqueDisponivel() {
-        // Arrange: prepara cenário
-        $produto = Produto::factory()->create([
-            'estoque' => 10
-        ]);
-        $cliente = Cliente::factory()->create();
-        
-        // Act: executa ação
-        $service = new PedidoService();
-        $pedido = $service->criar([
-            'cliente_id' => $cliente->id,
-            'items' => [
-                ['produto_id' => $produto->id, 'quantidade' => 2]
-            ]
-        ]);
-        
-        // Assert: valida resultado
-        $this->assertNotNull($pedido->id);
-        $this->assertEquals('pendente', $pedido->status);
-        
-        // Valida efeito colateral
-        $produto->refresh();
-        $this->assertEquals(8, $produto->estoque); // Reservou 2
-    }
-}
-```
----
-
-## Exemplo: Teste E2E
-
-```php
-class CheckoutE2ETest extends TestCase {
-    use DatabaseMigrations;
-    
-    public function testFluxoCompletoDeCompra() {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/produtos')
-                    // Adiciona ao carrinho
-                    ->click('.produto-1 .btn-adicionar')
-                    ->assertSee('1 item no carrinho')
-                    
-                    // Vai para checkout
-                    ->click('.btn-finalizar')
-                    ->assertPathIs('/checkout')
-                    
-                    // Preenche dados
-                    ->type('nome', 'João Silva')
-                    ->type('email', 'joao@example.com')
-                    ->type('cartao', '4111111111111111')
-                    
-                    // Finaliza
-                    ->click('.btn-pagar')
-                    ->waitForText('Pedido confirmado')
-                    ->assertPathIs('/pedido/confirmado')
-                    
-                    // Valida no banco
-                    ->assertDatabaseHas('pedidos', [
-                        'email' => 'joao@example.com',
-                        'status' => 'pago'
-                    ]);
-        });
-    }
-}
-```
----
-
-## Tipos de Testes: E2E
-
-**Ferramentas:**
-- Selenium
-- Cypress
-
-**Quando usar:**
-- Fluxos críticos (checkout, login)
-- Happy path principal
-- Regressão de bugs críticos
-
----
-
 ## Testes de Carga (Load Testing)
 
 **O que testa?**
@@ -3336,61 +2311,12 @@ class CheckoutE2ETest extends TestCase {
 - Tempo de resposta sob pressão
 - Identificar gargalos
 
-```bash
-# Apache Bench
-ab -n 1000 -c 100 http://localhost/api/pedidos
-
-# Resultado:
-# Requests per second: 250 [#/sec]
-# Time per request: 400 [ms] (mean)
-# 95% requests < 600ms
-```
-
----
-
-## Testes de Carga (Load Testing)
-
 **Ferramentas:**
 - Apache Bench (ab)
 - Artillery
 - JMeter
 - k6
 - Gatling
-
----
-
-## Exemplo: Teste de Carga com k6
-
-```javascript
-// load-test.js
-import http from 'k6/http';
-import { check, sleep } from 'k6';
-
-export let options = {
-    stages: [
-        { duration: '2m', target: 100 },  // Ramp up
-        { duration: '5m', target: 100 },  // Stay at 100 users
-        { duration: '2m', target: 200 },  // Spike
-        { duration: '5m', target: 200 },  // Stay at 200
-        { duration: '2m', target: 0 },    // Ramp down
-    ],
-    thresholds: {
-        http_req_duration: ['p(95)<500'], // 95% < 500ms
-        http_req_failed: ['rate<0.01'],   // < 1% falhas
-    },
-};
-
-export default function () {
-    let response = http.get('http://localhost/api/produtos');
-    
-    check(response, {
-        'status é 200': (r) => r.status === 200,
-        'tempo < 500ms': (r) => r.timings.duration < 500,
-    });
-    
-    sleep(1);
-}
-```
 
 ---
 
@@ -3409,18 +2335,6 @@ export default function () {
 ---
 
 ## Testes de Stress
-
-```javascript
-export let options = {
-    stages: [
-        { duration: '1m', target: 100 },
-        { duration: '1m', target: 200 },
-        { duration: '1m', target: 500 },  // Acima da capacidade
-        { duration: '1m', target: 1000 }, // Stress!
-        { duration: '2m', target: 0 },    // Recovery
-    ],
-};
-```
 
 **O que observar:**
 - Em qual ponto começou a falhar?
@@ -3472,78 +2386,6 @@ Descobre limites e comportamento em falha!
 
 ---
 
-## Exemplo: Teste de Mutação
-
-**Código original:**
-```php
-class CalculadoraDesconto {
-    public function calcular($valor, $tipo) {
-        if ($valor > 100) {
-            return $valor * 0.9;
-        }
-        return $valor;
-    }
-}
-```
-
----
-
-## Exemplo: Teste de Mutação
-
-**Mutação 1:** `>` → `>=`
-```php
-if ($valor >= 100) { // Mudou!
-```
-
-**Teste atual:**
-```php
-$this->assertEquals(90, $calc->calcular(100, 'padrao'));
-// Continua passando! MUTANTE SOBREVIVEU! ❌
-```
-
-**Teste melhorado:**
-```php
-$this->assertEquals(100, $calc->calcular(100, 'padrao')); // Sem desconto em 100
-$this->assertEquals(90, $calc->calcular(101, 'padrao'));  // Com desconto > 100
-// Agora detecta a mutação! MUTANTE MORTO! ✅
-```
-
----
-
-## Ferramentas: Testes de Mutação
-
-**Infection (PHP)**
-```bash
-composer require --dev infection/infection
-
-./vendor/bin/infection
-```
-
-**Resultado:**
-```
-Mutation Score Indicator (MSI): 75%
-Covered Code MSI: 85%
-
-Metrics:
-    Mutations: 120
-    Killed: 90
-    Survived: 30
-```
-
----
-
-## Ferramentas: Testes de Mutação
-
-**Meta:** MSI > 80%
-
-**Tipos de mutações:**
-- Operadores (`>` → `>=`, `+` → `-`)
-- Valores (`true` → `false`, `0` → `1`)
-- Remoção de linhas
-- Inversão de condições
-
----
-
 ## Testes de Contratos (Contract Testing)
 
 **O que testa?**
@@ -3555,98 +2397,12 @@ Metrics:
 - Pact
 - Spring Cloud Contract
 
---- 
-
-## Boas Práticas: Testes
-
-✅ **AAA Pattern**
-```php
-public function testCriarPedido() {
-    // Arrange: prepara
-    $produto = Produto::factory()->create();
-    // Act: executa
-    $pedido = PedidoService::criar(['produto_id' => $produto->id]);
-    // Assert: valida
-    $this->assertNotNull($pedido->id);
-}
-```
-
----
-
-## Boas Práticas: Testes
-
-✅ **Um assert por conceito**
-✅ **Nomes descritivos**
-✅ **Testes independentes** (não dependem de ordem)
-✅ **Rápidos** (unitários < 100ms)
-✅ **Determinísticos** (mesmo resultado sempre)
-
----
-
-## Boas Práticas: Testes
-
-✅ **Test Fixtures e Factories**
-```php
-// Evite repetição
-$user = User::factory()->create([
-    'email' => 'test@example.com'
-]);
-```
-
----
-
-## Boas Práticas: Testes
-
-✅ **Mock de dependências externas**
-```php
-// Não chame APIs reais em testes!
-$mock = Mockery::mock(PaymentGateway::class);
-$mock->shouldReceive('charge')->andReturn(['status' => 'ok']);
-```
-
----
-
-## Boas Práticas: Testes
-
-✅ **Database transactions em testes**
-```php
-use RefreshDatabase; // Limpa entre testes
-```
-
-✅ **Testes no CI/CD**
-```yaml
-# .github/workflows/tests.yml
-- run: php artisan test
-```
-
 ---
 
 ## Antipadrões em Testes
 
 ❌ **Testes que dependem de ordem**
-```php
-// RUIM!
-public function test01CriarUsuario() { ... }
-public function test02AtualizarUsuario() { ... } // Depende do 01
-```
-
----
-
-## Antipadrões em Testes
-
 ❌ **Testes lentos desnecessários**
-```php
-// RUIM! Teste unitário usando DB
-public function testCalcularDesconto() {
-    $produto = Produto::create(['preco' => 100]);
-    // Deveria mockar, não usar DB real!
-}
-```
-
----
-
-## Antipadrões em Testes
-
 ❌ **Múltiplos conceitos no mesmo teste**
 ❌ **Magic numbers sem contexto**
 ❌ **Ignorar testes falhando**
@@ -3658,79 +2414,8 @@ public function testCalcularDesconto() {
 **Ciclo Red-Green-Refactor:**
 
 🔴 **Red:** Escreve teste que falha
-```php
-public function testCalcularDesconto() {
-    $calc = new CalculadoraDesconto();
-    $this->assertEquals(90, $calc->calcular(100, 'vip'));
-}
-// FALHA: CalculadoraDesconto não existe
-```
-
----
-
-## TDD (Test-Driven Development)
-
-**Ciclo Red-Green-Refactor:**
-
 🟢 **Green:** Implementa código mínimo
-```php
-class CalculadoraDesconto {
-    public function calcular($valor, $tipo) {
-        return 90; // Mínimo para passar
-    }
-}
-```
-
----
-
-## TDD (Test-Driven Development)
-
-**Ciclo Red-Green-Refactor:**
-
 ♻️ **Refactor:** Melhora implementação
-```php
-public function calcular($valor, $tipo) {
-    return $tipo === 'vip' ? $valor * 0.9 : $valor;
-}
-```
-
----
-
-## Cobertura de Testes
-
-**O que é?**
-- % de linhas executadas pelos testes
-- Métrica, não objetivo final
-
-**Metas:**
-- 80%+ é excelente
-- 60-80% é bom
-- < 60% precisa melhorar
-
-**Cuidado:** 100% cobertura ≠ sem bugs!
-
----
-
-## Ferramentas: Ecossistema PHP
-
-**Framework de Testes:**
-- PHPUnit (padrão)
-- Pest (sintaxe moderna)
-
-**Mocking:**
-- Mockery
-- PHPUnit Mocks
-
----
-
-## Ferramentas: Ecossistema PHP
-
-**Mutation:**
-- Infection
-
-**Análise Estática:**
-- PHPStan
-- Psalm
 
 ---
 
@@ -3807,83 +2492,16 @@ _Existe a melhor para ESTE problema_
 
 ---
 
-## Linguagens: Casos de Uso
-
-**Python** 🐍
-- ✅ Data Science, ML, Automação
-- ✅ Prototipagem rápida
-- ❌ Performance crítica
-
-**Java/Kotlin** ☕
-- ✅ Enterprise, alta escala
-- ✅ Sistemas distribuídos
-- ❌ Prototipagem rápida
-
----
-
-## Linguagens: Casos de Uso
-
-**JavaScript/TypeScript** 🟨
-- ✅ Full-stack (Node + React)
-- ✅ Real-time (WebSocket)
-- ❌ Computação pesada
-
-**Go** 🔵
-- ✅ Microservices, CLI
-- ✅ Concorrência nativa
-- ❌ Ecossistema limitado
-
----
-
-## Linguagens: Casos de Uso
-
-**PHP** 🐘
-- ✅ Web tradicional, CMS
-- ✅ Ramp-up rápido
-- ❌ Aplicações desktop
-
-
----
-
 ## Critérios de Decisão: Linguagem
 
 **1. Performance necessária?**
-```
-Alto throughput → Go, Rust, Java
-Baixa latência → C++, Rust
-Normal → Python, PHP, Node
-```
-
----
-
-## Critérios de Decisão: Linguagem
-
 **2. Time tem experiência?**
 ```
 Sim → Use o que sabem bem
 Não → Tem tempo e estratégia para aprender?
 ```
-
----
-
-## Critérios de Decisão: Linguagem
-
 **3. Ecossistema maduro?**
-```
-Web → PHP, Node, Python, Java
-ML → Python
-Mobile → Kotlin, Swift
-```
-
----
-
-## Critérios de Decisão: Linguagem
-
 **4. Contratação fácil?**
-```
-Fácil → Java, Python, JavaScript, PHP
-Difícil → Haskell, Elixir, Rust
-```
 
 ---
 
