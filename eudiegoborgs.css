@@ -46,3 +46,15 @@ pre code, table {
     color: #000000;
     text-align: left;
 }
+
+.conduta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+.conduta img {
+    width: 150px;
+}

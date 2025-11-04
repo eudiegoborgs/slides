@@ -34,6 +34,25 @@ paginate: false
 
 ---
 
+## Workshop de Arquitetura evolutiva
+
+_Dê um upgrade na sua carreira dominando a arquitetura de software que evolui junto com o negócio!_
+
+- Código de Qualidade (Limpo, Refatoração, Padrões de Projeto)
+- Software Moderno (Microsserviços, Serverless, REST APIs)
+- Estratégias Avançadas (Acoplamento Inteligente, Filas/Mensageria, SAGA)
+
+Por apenas **R$350,00** com o cupom `PHPMG`
+
+<div class="conduta">
+
+![Workshop](./assets/qrcode.png)
+Se inscreva aqui
+
+</div>
+
+---
+
 _o que eu aprendi na transição de_
 
 # dev para tech manager
