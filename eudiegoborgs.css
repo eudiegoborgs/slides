@@ -58,3 +58,35 @@ pre code, table {
 .conduta img {
     width: 150px;
 }
+
+.horizontal-align {
+    margin: 50px 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.9rem;
+}
+.horizontal-align div {
+    padding: 0 20px
+}
+
+.self-image {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 60vh;
+    height: 60vh;
+}
+
+.family-image {
+    position: absolute;
+    top: 10vh;
+    right: 5vh;
+    width: 300px;
+}
+
+.team-image {
+    position: absolute;
+    top: 50vh;
+    right: 5vh;
+    width: 300px;
+}

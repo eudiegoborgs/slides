@@ -4,13 +4,8 @@ theme: eudiegoborgs
 paginate: false
 ---
 
-# Workshop
-## Arquitetura Evolutiva
-
----
-
 ## oi, eu sou o Diego
-<div style="position: absolute; top: 10vh; right: 0; width: 60vh; height: 60vh;">
+<div class="self-image">
 
 ![Diego Borges](./assets/diego.jpeg)
 
@@ -26,12 +21,12 @@ paginate: false
 - tech manager de um **time incrível**
 - e muitas outras coisas... 🍕🍰🍫🍖🌕🎸🚗🏍️🐶♾️
 
-<div style="position: absolute; top: 10vh; right: 5vh; width: 300px;">
+<div class="family-image">
 
 ![Familia](./assets/familia.jpeg)
 
 </div>
-<div style="position: absolute; top: 50vh; right: 5vh; width: 300px;">
+<div class="team-image">
 
 ![equipe](./assets/equipe.jpeg)
 
@@ -50,6 +45,195 @@ _O conteúdo é denso e tem muitos tópicos importantes a serem explorados._
 Dito isso:
 - Se algo estiver repetitivo ou for mais do mesmo, levante a mão e caso + 70% do grupo concorde pulamos o tema
 - Se não concluirmos o conteúdo hoje, agendaremos a apresentação restante online.
+
+---
+
+<!-- _class: lead -->
+
+# O Que é Arquitetura?
+
+**Definindo os fundamentos**
+
+---
+
+## Design vs Arquitetura
+
+**Design** 🎨
+- Como o código é organizado
+- Padrões aplicados
+- Estrutura local/detalhada
+
+**Arquitetura** 🏗️
+- Decisões estruturais principais
+- Componentes e suas relações
+- Impacto no sistema como um todo
+
+---
+
+## O Que NÃO É Arquitetura
+
+❌ **Estrutura de pastas não é design nem arquitetura**
+
+```
+/src
+  /application
+  /domain
+  /infrastructure
+```
+
+_Isso é apenas organização de arquivos!_
+
+---
+
+_"Arquitetura de software é um conjunto de decisões importantes e difíceis de serem mudadas no futuro"_
+
+**Martin Fowler**
+
+---
+
+_"A mudança é inevitável, evolução, entretanto, é opcional"_
+
+**Tony Robbins**
+
+---
+
+## Arquitetura de Software em um Cenário de Incertezas
+
+**Desafios:**
+- Requisitos mudam constantemente
+- Tecnologias evoluem rapidamente
+- Mercado é imprevisível
+- Time em constante mudança
+
+**Como construir algo duradouro em um mundo volátil?**
+
+---
+
+_"Uma arquitetura evolutiva suporta mudanças contínuas e incrementais como um primeiro princípio por meio de vários aspectos"_
+
+**Rebecca Parsons**
+
+---
+
+## De Onde Vêm as Mudanças?
+
+<div class="horizontal-align">
+<div>
+
+**Negócio** 📈
+- Novos requisitos
+- Pivots de produto
+- Expansão de mercado
+
+</div>
+
+<div>
+
+**Tecnologia** 💻
+
+- Novas ferramentas
+- Deprecated libraries
+- Performance necessária
+</div>
+
+</div>
+
+<div class="horizontal-align">
+
+<div>
+
+**Organização** 👥
+- Crescimento do time
+- Mudança de pessoas
+- Novas habilidades
+
+</div>
+
+<div>
+
+**Regulamentação** ⚖️
+- LGPD, GDPR
+- Compliance
+- Auditorias
+
+</div>
+
+</div>
+
+---
+
+## A Pressão do Mercado nunca diminui
+- Concorrência aumenta
+- Usuários mais exigentes
+- Time-to-market crítico
+- Expectativas crescem
+
+_Precisamos de arquiteturas que acelerem, não travem_
+
+---
+
+_"Uma arquitetura não deve apenas atender as demandas dos usuários, desenvolvedores e proprietários em um determinado momento, mas também corresponder a essas expectativas ao longo do tempo."_
+
+**Uncle Bob (Robert Martin)**
+
+---
+
+## Complexidade Essencial vs Acidental
+
+<div class="horizontal-align">
+<div>
+
+**Complexidade Essencial** 🎯
+- Inerente ao problema
+- Regras de negócio
+- Domínio complexo
+- **Não pode ser eliminada**
+
+</div>
+<div>
+
+**Complexidade Acidental** 💥
+
+- Criada pela solução escolhida
+- Frameworks desnecessários
+- Over-engineering
+- **Pode e deve ser eliminada**
+
+</div>
+
+---
+
+## Exemplo: Complexidade
+
+**Essencial** 🎯
+```
+Calcular imposto baseado em:
+- Localização do cliente
+- Tipo de produto
+- Legislação vigente
+- Isenções aplicáveis
+```
+
+**Acidental** 💥
+```
+- Usar 5 design patterns para um CRUD simples
+- Microserviços para 3 desenvolvedores
+- Kafka para 100 mensagens/dia
+```
+
+---
+
+## O Objetivo da Arquitetura
+
+**Maximizar produtividade** ao longo do tempo
+
+**Como?**
+- Facilitar mudanças
+- Reduzir complexidade acidental
+- Permitir evolução incremental
+- Manter opções abertas
+
+_Arquitetura é sobre decisões que você pode adiar_
 
 ---
 
@@ -3866,6 +4050,1213 @@ Criar marketplace B2C
 **Boa sorte! 🚀**
 
 _Lembre-se: não existe solução perfeita, existe a melhor para o contexto!_
+
+---
+
+<!-- _class: lead -->
+
+`Conceitual`
+# Cloud, Containers, CI & CD
+**Infraestrutura moderna e deployment automatizado**
+
+---
+
+## Cloud: Fundamentos
+
+**Benefícios:**
+
+- Escalabilidade sob demanda
+- Pay-as-you-use
+- Alta disponibilidade
+- Manutenção reduzida
+
+---
+
+## Por Que Containers?
+
+**Problemas tradicionais:**
+- "Funciona na minha máquina" 🤷‍♂️
+- Dependências conflitantes
+- Ambientes inconsistentes com deploy manual e propenso a erro
+
+**Containers resolvem:**
+- Ambiente padronizado
+- Isolamento de recursos
+- Portabilidade total com deploy consistente
+
+---
+
+## Docker: Best Practices
+
+<div class="horizontal-align">
+
+<div>
+
+✅ **Boas práticas:**
+- Use `.dockerignore` (como .gitignore)
+- Multi-stage builds para imagens menores
+- Não rode como root
+- Distroless
+- Uma responsabilidade por container
+- Versione suas imagens (`app:v1.2.3`)
+
+</div>
+
+<div>
+
+❌ **Evite:**
+- Instalar tudo numa imagem só
+- Senhas hardcoded
+- Logs dentro do container
+- Dados importantes em volumes não persistentes
+
+</div>
+
+</div>
+
+---
+
+## Kubernetes: Conceitos
+
+<div class="horizontal-align">
+
+<div>
+
+**Cluster** 🏢
+- Conjunto de máquinas (nodes)
+- Master node (control plane) + Worker nodes
+
+</div>
+
+<div>
+
+**Pod** 📦
+- Menor unidade deployável
+- Um ou mais containers
+- Compartilham rede e storage
+
+</div>
+
+<div>
+
+**Service** 🌐
+- Abstração para acessar pods
+- Load balancer interno
+- DNS interno
+
+</div>
+
+</div>
+
+---
+
+## Kubernetes: Quando Usar?
+
+<div class="horizontal-align">
+
+<div>
+
+✅ **Use Kubernetes quando:**
+- Múltiplos microsserviços
+- Necessita auto-scaling complexo
+- High availability crítica
+- Time DevOps experiente
+- Orquestração sofisticada necessária
+
+</div>
+
+<div>
+
+❌ **Evite quando:**
+- Aplicação simples (monólito pequeno)
+- Time sem experiência K8s
+- Overhead não justifica (poucas aplicações)
+- Cloud-managed alternatives suficientes (ECS, Cloud Run)
+
+</div>
+
+</div>
+
+---
+
+## Infrastructure as Code (IaC)
+
+<div class="horizontal-align">
+
+<div>
+
+**O que é?**
+- Infraestrutura definida em código
+- Versionada, testável, reproduzível
+- Declarativo (descreve estado desejado)
+
+</div>
+
+<div>
+
+**Ferramentas:**
+- **Terraform** - Multi-cloud, mais usado
+- **CloudFormation** - AWS específico
+- **Pulumi** - Linguagens de programação
+- **Ansible** - Configuration management
+
+</div>
+
+</div>
+
+---
+
+## IaC: Benefícios
+
+✅ **Vantagens:**
+- **Reprodutível** - Mesmo ambiente sempre
+- **Versionado** - Git para infraestrutura
+- **Testável** - Validação antes deploy
+- **Documentação viva** - Código é a documentação
+- **Rollback** - Voltar versão anterior
+- **Collaboration** - Code review para infra
+
+---
+
+## CI/CD: Conceitos
+
+<div class="horizontal-align">
+
+<div>
+
+**Continuous Integration (CI)** 🔄
+- Integração contínua de código
+- Testes automatizados
+- Build automatizado
+- Feedback rápido
+
+</div>
+
+<div>
+
+**Continuous Delivery (CD)** 🚀
+
+- Deploy automatizado para staging
+- Release manual para produção
+- Sem intervenção manual
+
+</div>
+
+</div>
+
+---
+
+## Pipeline: Best Practices
+
+<div class="horizontal-align">
+
+<div>
+
+✅ **Faça:**
+- **Fail fast** - Testes rápidos primeiro
+- **Parallel execution** - Execute em paralelo quando possível
+- **Immutable deployments** - Nova versão, não atualizar existente
+- **Rollback strategy** - Sempre tenha plano de volta
+- **Monitoring** - Alertas em cada estágio
+
+</div>
+
+<div>
+
+❌ **Evite:**
+- Testes lentos no início
+- Deploy manual de emergência
+- Secrets hardcoded
+- Pipeline sem rollback
+
+</div>
+
+</div>
+
+---
+
+## Auto Scaling: Estratégias
+
+<div class="horizontal-align">
+
+<div>
+
+**Reactive Scaling** 📊
+- Baseado em métricas atuais
+- CPU, memória, fila, requests/sec
+- Resposta após problema aparecer
+
+</div>
+
+<div>
+
+**Predictive Scaling** 🔮
+- Baseado em padrões históricos
+- Machine learning
+- Antecipa demanda
+
+</div>
+
+<div>
+
+**Scheduled Scaling** 📅
+- Baseado em horários conhecidos
+- Black Friday, lunch time
+- Previsível
+
+</div>
+
+</div>
+
+---
+
+## Monitoring e Observabilidade
+
+**Três Pilares:**
+
+<div class="horizontal-align">
+
+<div>
+
+**Metrics** 📊 ($)
+- CPU, memória, latência, throughput
+- Dashboards (Grafana)
+- Alertas (Prometheus)
+
+</div>
+
+<div>
+
+**Traces** 🔍 ($)
+
+- Request flow entre serviços
+- Performance bottlenecks
+- Distributed tracing (Jaeger, Zipkin)
+
+</div>
+
+<div>
+
+**Logs** 📝 ($$$)
+- Eventos da aplicação
+- Structured logging (JSON)
+- Centralizados (ELK, Fluentd)
+
+</div>
+
+</div>
+
+---
+
+## Alerting: Boas Práticas
+
+<div class="horizontal-align">
+
+<div>
+
+✅ **Configure alertas para:**
+- **Sintomas** do usuário (latência alta, errors)
+- **Causas** técnicas (CPU alto, disk full)
+- **Tendências** (crescimento insustentável)
+
+</div>
+
+<div>
+
+❌ **Evite:**
+- Alert fatigue (muitos alertas desnecessários)
+- Alertas sem ação clara
+- Alertas apenas para métricas técnicas
+
+</div>
+
+</div>
+
+**Regra de ouro:** Se não é acionável, não alerte!
+
+---
+
+## Otimização de custos
+
+**Estratégias:**
+
+<div class="horizontal-align">
+
+<div>
+
+**Right-sizing** 📏
+- Monitor uso real de CPU/memória
+- Adjust requests/limits
+- Remove recursos ociosos
+
+</div>
+
+<div>
+
+**Spot/Preemptible Instances** 💰
+- 60-90% mais barato
+- Para workloads tolerantes a interrupção
+- Batch jobs, development environments
+
+</div>
+
+<div>
+
+**Reserved Instances** 💳
+- Commit de 1-3 anos
+- 30-60% desconto
+- Para workloads estáveis
+
+</div>
+
+</div>
+
+---
+
+## Blue-Green Deployment
+
+**Estratégia:**
+- Dois ambientes idênticos (blue/green)
+- Deploy nova versão no ambiente inativo
+- Switch de tráfego instantâneo
+- Rollback rápido se necessário
+
+---
+
+## Canary Deployment
+
+**Estratégia:**
+- Deploy gradual (5% → 25% → 50% → 100%)
+- Monitor métricas em cada fase
+- Rollback automático se métricas degradam
+
+---
+
+<!-- _class: lead -->
+
+`Conceitual`
+# Segurança
+
+**Protegendo sistemas e dados**
+
+---
+
+## Por Que Segurança Importa?
+
+**Cenário atual:**
+- Ataques cibernéticos crescem 600% ao ano
+- Custo médio de breach: $4.45 milhões
+- Regulamentações rigorosas (LGPD, GDPR)
+- Reputação da empresa em risco
+
+**Princípio fundamental:**
+_Security by Design, não Security by Patch_
+
+---
+
+## Programação Defensiva
+
+**Mentalidade:**
+- Assuma que tudo pode falhar
+- Valide TODAS as entradas
+- Nunca confie em dados externos
+- Fail securely (falhe de forma segura)
+
+---
+
+## Programação Defensiva: Input Validation
+
+❌ **Nunca confie:**
+```php
+$sql = "SELECT * FROM users WHERE id = " . $_GET['id'];
+
+$file = $_POST['filename'];
+file_get_contents($file);
+```
+
+✅ **Sempre valide:**
+```php
+$id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
+if ($id === false) {
+    throw new InvalidArgumentException('ID deve ser inteiro');
+}
+
+$filename = basename($_POST['filename']);
+if (!preg_match('/^[a-zA-Z0-9._-]+$/', $filename)) {
+    throw new InvalidArgumentException('Filename inválido');
+}
+```
+
+---
+
+## Programação Defensiva: Sanitização
+
+**Princípios:**
+- **Whitelist** > Blacklist
+- **Escape** output baseado no contexto
+- **Encode** para formato correto
+
+```php
+// HTML Context
+echo htmlspecialchars($userInput, ENT_QUOTES, 'UTF-8');
+
+// SQL Context
+$stmt = $pdo->prepare("SELECT * FROM users WHERE name = ?");
+$stmt->execute([$userInput]);
+
+// JavaScript Context
+echo json_encode($userInput, JSON_HEX_TAG | JSON_HEX_AMP);
+```
+
+---
+
+## Programação Defensiva: Error Handling
+
+❌ **Nunca exponha detalhes:**
+```php
+catch (Exception $e) {
+    echo $e->getMessage();
+    // "Connection failed: mysql://root:senha123@localhost"
+}
+```
+
+✅ **Fail securely:**
+```php
+catch (Exception $e) {
+    // Resposta genérica para usuários
+    http_response_code(500);
+    echo json_encode(['error' => 'Erro interno do servidor']);
+}
+```
+
+---
+
+## Autenticação vs Autorização
+
+<div class="horizontal-align">
+
+<div>
+
+**Autenticação** 🔑
+- **Quem** você é?
+- Login/senha, 2FA, biometria
+- Confirma identidade
+
+</div>
+
+<div>
+
+**Autorização** 🚪
+- **O que** você pode fazer?
+- Permissions, roles, ACL
+- Controla acesso
+
+</div>
+
+</div>
+
+_Ambos necessários para segurança completa_
+
+---
+
+## Autenticação: Boas Práticas
+
+<div class="horizontal-align">
+
+<div>
+
+✅ **Multi-Factor Authentication (MFA)**
+```
+Algo que você sabe (senha)
++ 
+Algo que você tem (celular)
++
+Algo que você é (biometria)
+```
+
+</div>
+
+<div>
+
+✅ **Senhas seguras:**
+- Mínimo 12 caracteres
+- Complexidade obrigatória
+- Hash com salt (bcrypt, Argon2)
+- Rate limiting em tentativas
+
+</div>
+
+</div>
+
+---
+
+## Criptografia: Conceitos
+
+<div class="horizontal-align">
+
+<div>
+
+**Simétrica** 🔐
+- Mesma chave para cifrar e decifrar
+- Rápida, ideal para volumes grandes
+- AES-256-GCM
+
+</div>
+
+<div>
+
+**Assimétrica** 🔐🔓
+- Par de chaves (pública/privada)
+- Lenta, ideal para troca de chaves
+- RSA, ECC
+
+</div>
+
+<div>
+
+**Hash** #️⃣
+- Via única (não reversível)
+- Verifica integridade
+- SHA-256, SHA-3
+
+</div>
+
+</div>
+
+---
+
+## Criptografia: Quando Usar?
+
+<div class="horizontal-align">
+
+<div>
+
+**Dados em Trânsito** 🚀
+- HTTPS (TLS) sempre
+- VPN para comunicação interna
+- Certificados válidos
+
+</div>
+
+<div>
+
+**Dados em Repouso** 💾
+- Encrypt database
+- Encrypt backups
+- Encrypt logs sensíveis
+
+</div>
+
+<div>
+
+**Dados em Uso** 💻
+- Homomorphic encryption
+- Secure enclaves
+- Zero-knowledge proofs
+
+</div>
+
+</div>
+
+---
+
+## Rate Limiting
+
+**Por que?**
+- Prevenir DDoS
+- Evitar brute force
+- Proteger APIs caras
+- Garantir fair usage
+
+---
+
+## Cuidados com Cloud
+
+**Shared Responsibility Model**
+```
+Cloud Provider é responsável por:
+- Segurança DA cloud (física, rede, hypervisor)
+
+Você é responsável por:
+- Segurança NA cloud (dados, apps, configuração)
+```
+
+---
+
+## Cloud Security: IAM
+
+**Princípios:**
+- **Least Privilege** - Mínimos privilégios necessários
+- **Zero Trust** - Nunca confie, sempre verifique
+- **Defense in Depth** - Múltiplas camadas
+
+---
+
+## Cloud Security: Network
+
+**VPC (Virtual Private Cloud)**
+- Rede isolada
+- Subnets públicas e privadas
+- Security Groups (firewall)
+- NACLs (Network ACL)
+
+**Best Practices:**
+- Nunca exponha DB diretamente
+- WAF para aplicações web
+- DDoS protection sempre ativo
+
+---
+
+## OWASP Top 10 (2021)
+
+1. **Broken Access Control** 🚪
+2. **Cryptographic Failures** 🔐
+3. **Injection** 💉
+4. **Insecure Design** 🏗️
+5. **Security Misconfiguration** ⚙️
+6. **Vulnerable Components** 📦
+7. **Authentication Failures** 🔑
+8. **Software Integrity Failures** ✅
+9. **Logging & Monitoring Failures** 📊
+10. **Server-Side Request Forgery** 🌐
+
+_Estude cada um destes!_
+
+---
+
+## Security Testing
+
+<div class="horizontal-align">
+
+<div>
+
+**SAST (Static Analysis)**
+- Analisa código fonte
+- Detecta vulnerabilidades conhecidas
+- Integra no CI/CD
+- Ferramentas: SonarQube, Checkmarx
+
+</div>
+
+<div>
+
+**DAST (Dynamic Analysis)**
+- Testa aplicação rodando
+- Black-box testing
+- Ferramentas: OWASP ZAP, Burp Suite
+
+</div>
+
+<div>
+
+**IAST (Interactive Analysis)**
+- Combina SAST + DAST
+- Real-time analysis
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: lead -->
+
+# Cultura de Aprendizado Contínuo
+
+---
+
+## Por Que Aprendizado Contínuo?
+
+**Cenário tecnológico:**
+- Novas tecnologias surgem constantemente
+- Mercado valoriza adaptabilidade
+- Times que aprendem juntos performam melhor
+
+**Princípio fundamental:**
+_Learning Organizations > Individual Expertise_
+
+---
+
+## Documentação: Por Que Importa?
+
+**Problemas sem documentação:**
+- "Conhecimento na cabeça" de uma pessoa
+- Onboarding lento e frustrante
+- Decisões repetidas sem contexto
+- Perda de conhecimento quando pessoas saem
+
+---
+
+## Documentação: Por Que Importa?
+
+**Benefícios:**
+- Reduz dependência de pessoas específicas
+- Acelera onboarding
+- Preserva contexto histórico
+- Facilita manutenção
+
+---
+
+## Documentação: O Que Documentar?
+
+**Arquitetura** 🏗️
+- Decisões arquiteturais (ADRs)
+- Diagramas de componentes
+- Fluxos de dados
+- Trade-offs escolhidos
+
+**Processos** ⚙️
+- Como fazer deploy
+- Como debugar problemas comuns
+- Runbooks para emergências
+- Guidelines de desenvolvimento
+
+---
+
+## Documentação: O Que Documentar?
+
+**Contexto** 🧠
+- Por que escolhemos X e não Y?
+- Qual problema estávamos resolvendo?
+- Quais foram as restrições na época?
+- Lições aprendidas
+
+**Código** 💻
+- README com setup
+- Comentários explicando "porquê", não "como"
+- Exemplos de uso
+- APIs e contratos
+
+---
+
+## ADR: Architecture Decision Records
+
+**O que é?**
+- Documento que captura decisões arquiteturais importantes
+- Contexto, decisão, consequências
+- Imutável (histórico de decisões)
+
+---
+
+## Documentação: Como Manter Atualizada?
+
+✅ **Estratégias que funcionam:**
+
+**Definition of Done inclui docs**
+- Pull request sem docs = não aceito
+- Mudança arquitetural = ADR obrigatório
+
+**Docs próximas ao código**
+- README no repositório
+- Docs em Markdown versionadas
+- Diagramas como código (PlantUML, Mermaid)
+
+---
+
+## Documentação: Como Manter Atualizada?
+
+**Review de documentação**
+- Quarterly doc review
+- Métricas: docs acessadas vs não acessadas
+
+**Automação**
+- API docs geradas automaticamente
+- Diagramas atualizados por CI
+- Links quebrados detectados automaticamente
+
+---
+
+## Documentação: Antipadrões
+
+❌ **Evite:**
+
+**Wiki separado do código**
+- Fica desatualizado rapidamente
+- Desenvolvedores esquecem de atualizar
+
+**Documentação excessiva**
+- Documentar o óbvio
+- Duplicar o que o código já expressa
+
+**Vamos documentar depois**
+- Nunca acontece na prática
+
+---
+
+## Code Review: Além de Bugs
+
+**Objetivos:**
+- ✅ Encontrar bugs
+- ✅ **Compartilhar conhecimento**
+- ✅ **Manter consistência**
+- ✅ **Mentorar desenvolvedores**
+- ✅ **Discutir design**
+
+_Code review é uma das melhores ferramentas de aprendizado!_
+
+---
+
+## Code Review: O Que Revisar?
+
+<div class="horizontal-align">
+
+<div>
+
+**Funcionalidade** 🎯
+- Código faz o que deveria?
+- Edge cases considerados?
+- Performance adequada?
+
+</div>
+
+<div>
+
+**Design** 🏗️
+- Abstração apropriada?
+- Segue padrões estabelecidos?
+- SOLID principles?
+
+</div>
+
+<div>
+
+**Legibilidade** 📖
+- Nomes claros?
+- Função pequenas?
+- Comentários necessários?
+
+</div>
+
+</div>
+
+<div class="horizontal-align">
+
+<div>
+
+**Segurança** 🔒
+- Input validation?
+- SQL injection risks?
+- Secrets hardcoded?
+
+</div>
+
+<div>
+
+**Testes** 🧪
+- Testes suficientes?
+- Casos importantes cobertos?
+- Testes legíveis?
+
+</div>
+
+<div>
+
+**Documentação** 📚
+- README atualizado?
+- API docs necessárias?
+- Comentários explicativos?
+
+</div>
+
+</div>
+
+---
+
+## Code Review: Como Fazer Bem?
+
+✅ **Para quem revisa:**
+
+**Seja construtivo, não destrutivo**
+❌ "Esse código está uma porcaria"
+✅ "Que tal extrairmos essa lógica para uma função?"
+
+**Explique o porquê**
+❌ "Mude isso"
+✅ "Isso pode causar memory leak porque..."
+
+**Sugira soluções**
+❌ "Está errado"
+✅ "Que tal usarmos Strategy pattern aqui?"
+
+---
+
+## Code Review: Como Fazer Bem?
+
+**Aprenda também**
+- "Interessante essa abordagem, por que escolheu?"
+- "Não conhecia essa lib, como funciona?"
+
+**Priorize feedback**
+- **Critical:** Security, bugs sérios
+- **Major:** Performance, design
+- **Minor:** Estilo, naming
+
+**Seja específico**
+❌ "Tem problema na linha 50"
+✅ "Linha 50: variable $user pode ser null"
+
+---
+
+## Code Review: Para Quem Submete
+
+✅ **Boas práticas:**
+
+<div class="horizontal-align">
+
+<div>
+
+**PRs pequenos e focados**
+- Máximo 400 linhas
+- Uma feature/fix por PR
+- Facilita revisão de qualidade
+
+</div>
+
+<div>
+
+**Contexto claro**
+- Descreva o problema resolvido
+- Link para issue/ticket
+- Screenshots se UI
+
+</div>
+
+<div>
+
+**Self-review primeiro**
+- Revise seu próprio código
+- Teste locally
+
+</div>
+
+</div>
+
+<div class="horizontal-align">
+
+<div>
+
+**Responda construtivamente**
+- Agradeça feedback
+- Explique seu raciocínio se discordar
+- Faça perguntas para entender
+
+</div>
+
+<div>
+
+**Aprenda com feedback**
+- Note padrões nos comentários
+- Melhore para próxima vez
+- Não leve para o pessoal
+
+</div>
+
+</div>
+
+---
+
+## Arquiteto como Guia Turístico
+
+**Guia turístico** vs **Arquiteto Civil**
+
+<div class="horizontal-align">
+
+<div>
+
+❌ **Arquiteto Civil:**
+- "Façam exatamente como eu digo"
+- Decisões top-down sem explicação
+- Não ouve feedback do time
+- Cria dependência total
+
+</div>
+
+<div>
+
+✅ **Guia turístico:**
+- "Deixem-me mostrar o caminho"
+- Explica o porquê das decisões
+- Adapta rota baseado no grupo
+- Ensina a pescar
+
+</div>
+
+</div>
+
+---
+
+## Arquiteto como Guia: Características
+
+<div class="horizontal-align">
+
+<div>
+
+**Conhece o território** 🗺️
+- Domina tecnologias e padrões
+- Entende trade-offs
+- Conhece as armadilhas comuns
+- Experiência prática
+
+</div>
+
+<div>
+
+**Adapta ao grupo** 👥
+- Considera skill level do time
+- Ajusta complexidade da solução
+- Respeita constraints (tempo, budget)
+- Evolui arquitetura gradualmente
+
+</div>
+
+</div>
+
+<div class="horizontal-align">
+
+<div>
+
+**Ensina durante a jornada** 🎓
+- Explica decisões arquiteturais
+- Faz pair programming
+- Documenta raciocínio
+- Responde perguntas pacientemente
+
+</div>
+
+<div>
+
+**Permite exploração** 🔍
+- Deixa time descobrir alguns caminhos
+- Intervém só quando necessário
+- Encourage experimentação controlada
+- Learn from mistakes together
+
+</div>
+
+</div>
+
+---
+
+## Shuhari: Jornada de Aprendizado
+
+**Conceito do Aikido aplicado ao desenvolvimento:**
+
+<div class="horizontal-align">
+
+<div>
+
+**守 (Shu) - Proteger/Obedecer** 👨‍🎓
+- Seguir regras e formas estabelecidas
+- Imitar mestres
+- Não questionar ainda
+- Foco na execução correta
+
+</div>
+
+<div>
+
+**破 (Ha) - Quebrar/Desprender** 🔄
+- Entender princípios por trás das regras
+- Começar a modificar e adaptar
+- Questionar quando apropriado
+- Desenvolver estilo próprio
+
+</div>
+
+<div>
+
+**離 (Ri) - Deixar/Separar** 🧙‍♂️
+- Transcender formas tradicionais
+- Criar novos caminhos
+- Ensinar outros
+- Inovação baseada em maestria
+
+</div>
+
+</div>
+
+---
+
+## Shuhari: Aplicado ao Desenvolvimento
+
+**Shu - Seguir Padrões** 👨‍🎓
+```
+Junior Developer:
+- Segue style guide religiosamente
+- Usa patterns estabelecidos
+- Copia soluções que funcionam
+- Foco: não quebrar nada
+```
+
+**Exemplo:** Sempre usar Repository pattern, mesmo em CRUDs simples
+
+---
+
+## Shuhari: Aplicado ao Desenvolvimento
+
+**Ha - Adaptar Contexto** 🔄
+```
+Mid-level Developer:
+- Entende quando quebrar regras
+- Adapta patterns ao contexto
+- Questiona decisões arquiteturais
+- Foco: soluções apropriadas
+```
+
+**Exemplo:** "Repository é overhead aqui, mas Event Sourcing faz sentido"
+
+---
+
+## Shuhari: Aplicado ao Desenvolvimento
+
+**Ri - Criar Novos Caminhos** 🧙‍♂️
+```
+Senior/Arquiteto:
+- Cria novos patterns
+- Define padrões para o time
+- Innovation based on deep understanding
+- Foco: evoluir a arte
+```
+
+**Exemplo:** Criar novo pattern específico para o domínio da empresa
+
+---
+
+## Shuhari: Para Líderes Técnicos
+
+<div class="horizontal-align">
+
+<div>
+
+**Com Juniors (Shu):**
+- Forneça regras claras
+- Code reviews detalhados
+- Pair programming frequente
+- Não sobrecarregue com opções
+
+</div>
+
+<div>
+
+**Com Plenos (Ha):**
+- Explique o porquê das regras
+- Encoraje experimentação controlada
+- Discuta trade-offs
+- Permita erros educativos
+
+</div>
+
+<div>
+
+**Com Seniors (Ri):**
+- Dê autonomia total
+- Facilite knowledge sharing
+- Challenges complexos
+- Let them innovate
+
+</div>
+
+</div>
 
 ---
 
