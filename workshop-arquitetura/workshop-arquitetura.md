@@ -613,16 +613,6 @@ _Quando tem proposito claro_
 
 ---
 
-## Recap: Como tomar boas decisões
-
-1. Comece pelo problema
-2. Não decida sozinho
-3. Evite HDD
-4. Prefira reversível
-5. Argumente com dados
-
----
-
 # Código de Qualidade
 
 ---
@@ -1147,17 +1137,6 @@ _Qualidade não tem preço, mas a ausência dela custa caro_
 - Frequência de bugs
 
 **Ferramentas:** SonarQube
-
----
-
-## Recap: Código de Qualidade
-
-1. **Nomes claros** > Comentários
-2. **Funções pequenas** > Funções grandes
-3. **Refatore sempre** (com testes!)
-4. **Isole camadas** quando fizer sentido
-5. **Use padrões** quando resolver problema real
-6. **Gerencie débitos** como finanças
 
 ---
 
@@ -1729,22 +1708,6 @@ causado por 2 tipos acoplamentos
 
 ---
 
-## Recap: Acoplamento Inteligente
-
-**Indireção** 🔀
-- Use interface quando múltiplas implementações
-- Evite se não vai mudar
-
-**Acoplamento Espacial** 📍
-- Encapsule sequências obrigatórias
-- Torne impossível usar errado
-
-**Acoplamento Temporal** ⏰
-- Prefira assíncrono quando possível
-- Use idempotência e eventual consistency
-
----
-
 <!-- _class: lead -->
 
 # Mensageria e Comunicação Assíncrona
@@ -1977,34 +1940,6 @@ Cada uma com seus tradeoffs...
 
 ---
 
-## RabbitMQ: Quando Usar?
-
-✅ **Ideal para:**
-- Filas tradicionais de tarefas
-- Roteamento complexo (exchanges)
-- Garantia de entrega crítica
-- Pub/Sub simples
-- Sistema com volume moderado
-
----
-
-## RabbitMQ: Quando Usar?
-
-📊 **Throughput:**
-- ~20-50k msgs/seg por servidor
-- Bom para maioria dos casos
-
----
-
-## RabbitMQ: Quando Usar?
-
-🎯 **Use cases:**
-- Processamento de pedidos
-- Envio de emails
-- Tarefas agendadas
-
----
-
 ## Apache Kafka
 
 **Características:**
@@ -2035,35 +1970,6 @@ Cada uma com seus tradeoffs...
 
 ---
 
-## Apache Kafka: Quando Usar?
-
-✅ **Ideal para:**
-- Streaming de dados em tempo real
-- Event sourcing
-- Log agregation
-- Analytics em tempo real
-- Volume massivo de mensagens
-
----
-
-## Apache Kafka: Quando Usar?
-
-📊 **Throughput:**
-- Milhões de msgs/seg
-- Centenas de GB/seg
-
----
-
-## Apache Kafka: Quando Usar?
-
-🎯 **Use cases:**
-- Activity tracking
-- Métricas e monitoramento
-- Stream processing
-- Data pipeline
-
----
-
 ## Redis (Pub/Sub e Streams)
 
 **Características:**
@@ -2091,34 +1997,6 @@ Cada uma com seus tradeoffs...
 - Sem garantia de entrega
 - Limitado pela memória
 - Não é message broker completo
-
----
-
-## Redis: Quando Usar?
-
-✅ **Ideal para:**
-- Notificações em tempo real
-- Cache invalidation
-- Pub/Sub de baixa criticidade
-- Tarefas simples e rápidas
-
----
-
-## Redis: Quando Usar?
-
-❌ **Evite para:**
-- Mensagens críticas ($$)
-- Alto volume persistente
-- Necessita garantias fortes
-
----
-
-## Redis: Quando Usar?
-
-🎯 **Use cases:**
-- WebSocket broadcasts
-- Invalidação de cache
-- Notificações de chat
 
 ---
 
@@ -2153,33 +2031,6 @@ Cada uma com seus tradeoffs...
 - Vendor lock-in
 - Latência variável
 - Custo em alto volume
-
----
-
-## AWS: Quando Usar?
-
-✅ **Ideal para:**
-- Infraestrutura na AWS
-- Não quer gerenciar broker
-- Escalabilidade imprevisível
-- Startup/MVP rápido
-
----
-
-## AWS: Quando Usar?
-
-📊 **Pricing:**
-- SQS: ~$0.40 por milhão de requisições
-- SNS: ~$0.50 por milhão de notificações
-
----
-
-## AWS: Quando Usar?
-
-🎯 **Use cases:**
-- Lambda triggers
-- Cross-account messaging
-- Microservices na AWS
 
 ---
 
@@ -2331,34 +2182,6 @@ Tentativa 4: falha → DLQ
 ❌ **Sincronia disfarçada**
 - Esperar resposta da fila = anti-padrão
 - Use request/response se precisa síncrono
-
----
-
-## Recap: Mensageria
-
-**Quando usar?** 🎯
-- Processamento assíncrono
-- Desacoplamento de serviços
-- Escalabilidade horizontal
-
----
-
-## Recap: Mensageria
-
-**Ferramentas:**
-- RabbitMQ: filas tradicionais
-- Kafka: streaming e event sourcing
-- Redis: notificações rápidas
-- AWS SQS/SNS: cloud-native
-
----
-
-## Recap: Mensageria
-
-**Essenciais:**
-- Dead Letter Queue sempre
-- Idempotência nas operações
-- Monitoramento constante
 
 ---
 
@@ -2600,34 +2423,6 @@ Descobre limites e comportamento em falha!
 🔴 **Red:** Escreve teste que falha
 🟢 **Green:** Implementa código mínimo
 ♻️ **Refactor:** Melhora implementação
-
----
-
-## Recap: Tipos de Testes
-
-**Funcionais:**
-- Unitário, Integração, E2E
-
-**Não-funcionais:**
-- Carga (performance normal)
-- Stress (além do limite)
-- Mutação (qualidade dos testes)
-- Contratos (APIs)
-
----
-
-## Recap: Cultura de Testes
-
-✅ **Teste não é extra, é obrigação**
-✅ **Red-Green-Refactor** (TDD)
-✅ **Cobertura > 80%**
-✅ **CI/CD roda testes sempre**
-✅ **Testes rápidos** (feedback < 5 min)
-✅ **Mutation Score > 75%**
-
-❌ **"Depois eu testo"**
-❌ **Testes flakey (intermitentes)**
-❌ **Ignorar testes falhando**
 
 ---
 
