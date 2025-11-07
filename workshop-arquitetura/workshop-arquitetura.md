@@ -3891,8 +3891,6 @@ _Lembre-se: não existe solução perfeita, existe a melhor para o contexto!_
 - Use `.dockerignore` (como .gitignore)
 - Multi-stage builds para imagens menores
 - Não rode como root
-- Distroless
-- Uma responsabilidade por container
 - Versione suas imagens (`app:v1.2.3`)
 
 </div>
@@ -3992,7 +3990,6 @@ _Lembre-se: não existe solução perfeita, existe a melhor para o contexto!_
 **Ferramentas:**
 - **Terraform** - Multi-cloud, mais usado
 - **CloudFormation** - AWS específico
-- **Pulumi** - Linguagens de programação
 - **Ansible** - Configuration management
 
 </div>
@@ -4115,8 +4112,8 @@ _Lembre-se: não existe solução perfeita, existe a melhor para o contexto!_
 
 **Metrics** 📊 ($)
 - CPU, memória, latência, throughput
-- Dashboards (Grafana)
-- Alertas (Prometheus)
+- Dashboards
+- Alertas
 
 </div>
 
@@ -4125,8 +4122,8 @@ _Lembre-se: não existe solução perfeita, existe a melhor para o contexto!_
 **Traces** 🔍 ($)
 
 - Request flow entre serviços
-- Performance bottlenecks
-- Distributed tracing (Jaeger, Zipkin)
+- Indentificar gargalos
+- Distributed tracing
 
 </div>
 
@@ -4135,7 +4132,7 @@ _Lembre-se: não existe solução perfeita, existe a melhor para o contexto!_
 **Logs** 📝 ($$$)
 - Eventos da aplicação
 - Structured logging (JSON)
-- Centralizados (ELK, Fluentd)
+- Centralizados
 
 </div>
 
