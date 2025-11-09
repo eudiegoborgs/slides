@@ -969,6 +969,216 @@ _Não precisa de Clean Architecture no dia 0_
 
 ---
 
+## SOLID: Princípios Fundamentais
+
+**S** - Single Responsibility Principle
+**O** - Open/Closed Principle  
+**L** - Liskov Substitution Principle
+**I** - Interface Segregation Principle
+**D** - Dependency Inversion Principle
+
+_Base para código flexível e manutenível_
+
+---
+
+## S - Single Responsibility
+
+**Uma classe deve ter apenas um motivo para mudar**
+
+❌ **Ruim:**
+```php
+class User {
+    public function save() { /* DB logic */ }
+    public function sendEmail() { /* Email logic */ }
+    public function generateReport() { /* Report logic */ }
+    // 3 responsabilidades = 3 motivos para mudar
+}
+```
+
+✅ **Bom:**
+```php
+class User { /* Apenas dados do usuário */ }
+class UserRepository { /* Apenas persistência */ }
+class EmailService { /* Apenas envio de email */ }
+class ReportGenerator { /* Apenas relatórios */ }
+```
+
+---
+
+## O - Open/Closed
+
+**Aberto para extensão, fechado para modificação**
+
+```php
+// ❌ Ruim:
+class CalculadoraFrete {
+    public function calcular($tipo, $peso) {
+        if ($tipo == 'normal') return $peso * 2;
+        if ($tipo == 'expresso') return $peso * 5;
+        // Para adicionar novo tipo = modificar classe
+    }
+}
+
+// ✅ Bom:
+interface FreteCalculator {
+    public function calcular($tipo, $peso);
+}
+class FreteNormal implements FreteCalculator { /* */ }
+class FreteExpresso implements FreteCalculator { /* */ }
+// Novo tipo = nova classe, sem modificar existentes
+```
+
+---
+
+## L - Liskov Substitution
+
+**Objetos de subclasse devem substituir objetos da classe pai sem quebrar**
+
+```php
+// ❌ Ruim:
+class Bird {
+    public function fly() { /* voa */ }
+}
+class Penguin extends Bird {
+    public function fly() {
+        throw new Exception("Pinguim não voa!");
+    }
+}
+
+// ✅ Bom:
+interface Bird { }
+interface FlyingBird extends Bird {
+    public function fly();
+}
+class Eagle implements FlyingBird { /* voa */ }
+class Penguin implements Bird { /* não voa */ }
+```
+
+---
+
+## I - Interface Segregation
+
+**Muitas interfaces específicas > Uma interface geral**
+
+```php
+// ❌ Ruim:
+interface Worker {
+    public function work();
+    public function eat();
+    public function sleep(); // Robô não dorme!
+}
+
+// ✅ Bom: Cada classe só implementa o que precisa
+interface Workable {
+    public function work();
+}
+interface Eater {
+    public function eat();
+}
+interface Sleeper {
+    public function sleep();
+}
+```
+
+---
+
+## D - Dependency Inversion
+
+**Dependa de abstrações, não de concretizações**
+
+```php
+// ❌ Ruim:
+class PedidoService {
+    private $mysql; // Dependência concreta
+    
+    public function __construct() {
+        $this->mysql = new MySQL(); // Acoplamento forte
+    }
+}
+
+// ✅ Bom:
+class PedidoService {
+    // Injeção de dependência
+    public function __construct(private readonly PedidoRepository $repository) {
+    }
+}
+```
+
+--- 
+
+_SOLID é besteira o negocio é funcional, afinal em funcional tudo isso é só função._
+
+### Não é bem assim amigo!
+Se for pensar desse jeito em **POO tudo é objeto**
+
+---
+
+## SOLID vs Programação Funcional
+
+**SOLID é orientado a objetos, mas conceitos se aplicam:**
+
+<div class="horizontal-align">
+
+<div>
+
+**Single Responsibility** ↔️ **Pure Functions**
+- Uma função, uma responsabilidade
+- Sem side effects
+- Entrada → Saída previsível
+
+</div>
+
+<div>
+
+
+**Open/Closed** ↔️ **Higher-Order Functions**
+- Extensão via composição
+- Funções que recebem funções
+- Pipeline de transformações
+
+</div>
+
+</div>
+
+---
+
+## SOLID vs Programação Funcional
+
+**SOLID é orientado a objetos, mas conceitos se aplicam:**
+
+<div class="horizontal-align">
+
+<div>
+
+**Liskov Substitution** ↔️ **Function Signatures**
+- Tipos compatíveis
+- Contratos respeitados via tipos
+- TypeScript, Haskell garantem isso
+
+</div>
+
+<div>
+
+**Interface Segregation** ↔️ **Function Composition**
+- Funções pequenas e específicas
+- Compose funções simples em complexas
+- Evita "god functions"
+
+</div>
+
+<div>
+
+**Dependency Inversion** ↔️ **Higher-Order Functions**
+- Injetar comportamento via parâmetros
+- Currying e partial application
+- Inversão de controle funcional
+
+</div>
+
+</div>
+
+---
+
 ## Padrões de Projeto
 
 ### Soluções Comprovadas
@@ -4436,15 +4646,6 @@ Algo que você é (biometria)
 - Encrypt database
 - Encrypt backups
 - Encrypt logs sensíveis
-
-</div>
-
-<div>
-
-**Dados em Uso** 💻
-- Homomorphic encryption
-- Secure enclaves
-- Zero-knowledge proofs
 
 </div>
 
