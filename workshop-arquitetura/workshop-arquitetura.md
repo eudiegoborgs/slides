@@ -237,6 +237,158 @@ _Arquitetura é sobre decisões que você pode adiar_
 
 ---
 
+## Fitness Functions
+
+**Como saber se a arquitetura está evoluindo na direção certa?**
+
+---
+
+## O que é uma Fitness Functions?
+
+_Mecanismos objetivos que verificam características arquiteturais_
+
+Assim como testes unitários verificam comportamento do código, **fitness functions verificam características da arquitetura**
+
+_"Qualquer mecanismo que forneça uma avaliação objetiva da integridade de alguma característica arquitetônica."_ 
+**Building Evolutionary Architectures - Rebecca Parsons**
+
+---
+
+## Por Que Fitness Functions?
+
+**Problema:** Como garantir que a arquitetura não degrada ao longo do tempo?
+
+**Cenários comuns:**
+- Módulos que deveriam ser independentes começam a se acoplar
+- Performance degrada gradualmente sem perceber
+- Dependências circulares aparecem "sem querer"
+- Limites de contexto são violados
+
+**Fitness functions detectam isso automaticamente**
+
+---
+
+## Exemplos de Fitness Functions
+
+**1. Acoplamento entre módulos**
+```php
+// PHPArkitect - Regras arquiteturais
+public function testDomainNaoDependeDeInfraestrutura(): void
+{
+    $this->assertDoesNotDependOn(
+        'App\Domain',
+        'App\Infrastructure'
+    );
+}
+```
+
+---
+
+## Exemplos de Fitness Functions
+
+**2. Tamanho de classes**
+```php
+// PHP_CodeSniffer custom rule
+public function testClassesNaoDevemExceder300Linhas(): void
+{
+    $files = glob(__DIR__ . '/../src/**/*.php');
+    foreach ($files as $file) {
+        $lines = count(file($file));
+        $this->assertLessThan(300, $lines, 
+            "Classe {$file} tem {$lines} linhas");
+    }
+}
+```
+
+---
+
+## Exemplos de Fitness Functions
+
+**3. Performance de endpoint**
+```php
+public function testEndpointDeveDemorarMenosDe200ms(): void
+{
+    $start = microtime(true);
+    $response = $this->get('/api/products');
+    $duration = (microtime(true) - $start) * 1000;
+    
+    $this->assertLessThan(200, $duration,
+        "Endpoint demorou {$duration}ms");
+}
+```
+
+---
+
+## Exemplos de Fitness Functions
+
+**4. Dependências circulares**
+```php
+// PHPArkitect - Detecta ciclos
+public function testNaoDeveHaverDependenciasCirculares(): void
+{
+    $this->assertDoesNotHaveCyclicDependencies([
+        'App\\Domain',
+        'App\\Application',
+        'App\\Infrastructure'
+    ]);
+}
+```
+
+---
+
+## Tipos de Fitness Functions
+
+<div class="horizontal-align">
+<div>
+
+**Atômicas** 🎯
+- Verificam uma única característica
+- Exemplo: Tempo de resposta < 200ms
+
+**Holísticas** 🌐
+- Verificam múltiplas características
+- Exemplo: Deploy completo com testes + segurança + performance
+
+</div>
+
+<div>
+
+**Disparadas** ⚡
+- Executam em eventos (commit, deploy, schedule)
+
+**Contínuas** 🔄
+- Monitoramento em produção (APM, logs, métricas)
+
+</div>
+</div>
+
+---
+
+## Ferramentas para Fitness Functions
+
+- PHPArkitect - Regras arquiteturais como testes
+- Deptrac - Análise de dependências entre camadas
+- PHP_CodeSniffer - Padrões de código
+- PHPStan/Psalm - Análise estática de tipos
+- PHPMD - Métricas e complexidade
+- SonarQube PHP - Qualidade e segurança
+
+---
+
+## Fitness Functions na Prática
+
+**Integre ao CI/CD:**
+1. Desenvolvedor faz commit
+2. CI executa testes unitários ✅
+3. CI executa fitness functions ✅
+4. Se falhar, build quebra 🔴
+
+**Resultado:** Violações arquiteturais são detectadas **antes** de chegar em produção
+
+_Arquitetura se torna verificável, não apenas documentada_
+
+---
+
 # Tomada de Decisões Técnicas
 
 ---
