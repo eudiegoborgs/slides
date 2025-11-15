@@ -5243,9 +5243,9 @@ Senior/Arquiteto:
 
 **Com Seniors (Ri):**
 - Dê autonomia total
-- Facilite knowledge sharing
-- Challenges complexos
-- Let them innovate
+- Facilite compartilhar conhecimento
+- Desafios complexos
+- Deixe eles inovarem
 
 </div>
 
@@ -5257,3 +5257,9 @@ Senior/Arquiteto:
 
 ### E você, o que acha?
 _`@eudiegoborgs`_
+<div class="conduta">
+
+![Feedback](./assets/feedback.png)
+_Deixe aqui seu Feedback_
+
+</div>
