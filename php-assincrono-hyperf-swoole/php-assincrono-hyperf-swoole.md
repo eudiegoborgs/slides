@@ -59,10 +59,13 @@ _o processo **espera** a resposta antes de continuar_
 Requisição 1 (377ms): ██==WAIT QUERY DB==[RESPONSE]
 Requisição 2 (434ms):                              ██==WAIT HTTP API==[RESPONSE]
 Requisição 3 (280ms):                                                           ██==WAIT CACHE==[RESPONSE]
-```
+
+-------
+
 Legendas
 Em execução █
 Aguardando resposta ==
+```
 
 ⏱️ Tempo total = soma de todas as operações (1091ms)
 
@@ -76,10 +79,13 @@ _o processo **não espera**, executa outras tarefas_
 Requisição 1 (377ms): ██=====WAIT QUERY DB=====██[RESPONSE]
 Requisição 2 (434ms):   ██========WAIT HTTP API========██[RESPONSE]
 Requisição 3 (280ms):     ██==WAIT CACHE==██[RESPONSE]
-```
+
+-------
+
 Legendas
 Em execução █
 Aguardando resposta ==
+```
 
 ⚡ Tempo total = tempo da operação mais lenta (434ms)
 
@@ -113,10 +119,13 @@ Somente 1 core:
 Tarefa A: ██==████==██
 Tarefa B:   ██====██
 Tarefa C:           ██==██
-```
+
+-------
+
 Legendas
 Em execução █
 Aguardando resposta ==
+```
 
 ---
 
