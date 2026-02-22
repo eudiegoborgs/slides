@@ -229,6 +229,21 @@ _Resultado: **2x a 5x** mais performance_
 
 ---
 
+### A analogia da marmita 🍱
+
+- **PHP-FPM**: cozinhar do zero toda vez que bater fome
+  - Lavar panela, picar legumes, temperar, cozinhar... _toda vez_
+  - ⏱️ Lento, repetitivo e cansativo
+
+- **Swoole**: fazer o _meal prep_ da semana
+  - Cozinha tudo de uma vez no domingo
+  - Nos outros dias: **pega a marmita e come** 🚀
+  - Mesma refeição, **fração do tempo**
+
+_O bootstrap é o "domingo de cozinha" — acontece **uma única vez**_
+
+---
+
 ### Event Loop
 
 _Um loop infinito que monitora e despacha eventos de I/O_
