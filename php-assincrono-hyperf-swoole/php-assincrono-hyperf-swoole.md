@@ -229,13 +229,11 @@ _Resultado: **2x a 5x** mais performance_
 
 ---
 
-### A analogia da marmita 🍱
-
 - **PHP-FPM**: cozinhar do zero toda vez que bater fome
   - Lavar panela, picar legumes, temperar, cozinhar... _toda vez_
   - ⏱️ Lento, repetitivo e cansativo
 
-- **Swoole**: fazer o _meal prep_ da semana
+- **Swoole**: fazer as _marmitas_ da semana
   - Cozinha tudo de uma vez no domingo
   - Nos outros dias: **pega a marmita e come** 🚀
   - Mesma refeição, **fração do tempo**
@@ -297,6 +295,25 @@ Event Loop monitora:
 ```
 
 _Centenas de corrotinas concorrentes em uma única thread_
+
+---
+
+### O event loop é o maestro 🎼
+
+- Cada **músico** é uma corrotina — cada um executa sua parte
+- O **maestro** é o Event Loop — não toca nenhum instrumento, só **orquestra**
+- Quando o violino precisa **aguardar** sua entrada, o regente passa a atenção para os metais
+- Quando chega a hora do violino retomar, o regente aponta para ele novamente
+
+```
+Violino   (corrotina A): ♪♪♪ ——espera—— ♪♪♪♪♪
+Metais    (corrotina B):      ♪♪♪♪ ——espera—— ♪♪♪
+Percussão (corrotina C):           ♪♪ ——espera—— ♪♪♪♪
+
+Regente (Event Loop): coordena quem toca a cada momento
+```
+
+_Ninguém fica em silêncio à toa — o Event Loop garante que a orquestra nunca pare_
 
 ---
 
