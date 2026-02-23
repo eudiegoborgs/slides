@@ -348,22 +348,9 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 </table>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
-<h3 id="o-inter-proccess-communication-ipc">O Inter-Proccess Communication (IPC)</h3>
-<h2 id="o-r%C3%A1dio-entre-os-processos-%F0%9F%93%BB">O Rádio entre os Processos <img class="emoji" draggable="false" alt="📻" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4fb.svg" data-marp-twemoji=""/></h2>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
-<p>O <strong>Reactor</strong> (Recepcionista) está em um processo separado do <strong>Worker</strong> (Garçom). Eles não podem simplesmente &quot;falar&quot;.</p>
-<p>Eles usam um <strong>rádio (Unix Socket)</strong>:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>Reactor fala: &quot;Pedido para a mesa 10&quot;
-     │
-     └──► Unix Socket ──► Worker recebe e começa a executar
-</code></pre>
-<p><em>Sem o rádio, o pedido nunca chegaria à cozinha</em></p>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h2 id="o-que-%C3%A9-o-hyperf">O que é o Hyperf?</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="hyperf">Hyperf</h3>
 <ul>
 <li>Framework <strong>alto desempenho</strong> baseado em Swoole</li>
@@ -374,7 +361,7 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 </ul>
 <p>Por ser baseado no laravel, passamos a ter performance muito superior com poucos ajustes na forma de desenvolver.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="hyperf-ecossistema-completo">Hyperf: Ecossistema completo</h3>
 <p><img class="emoji" draggable="false" alt="🔧" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f527.svg" data-marp-twemoji=""/> <strong>Core</strong>: Router, Middleware, DI, AOP<br />
 <img class="emoji" draggable="false" alt="📦" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4e6.svg" data-marp-twemoji=""/> <strong>Data</strong>: Eloquent ORM, Migrations, Redis<br />
@@ -382,11 +369,11 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 <img class="emoji" draggable="false" alt="📊" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4ca.svg" data-marp-twemoji=""/> <strong>Obs</strong>: Logging, Metrics, Tracing<br />
 <img class="emoji" draggable="false" alt="⚙️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" data-marp-twemoji=""/> <strong>Infra</strong>: Circuit Breaker, Rate Limiter, Cron</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="tradeoffs">Tradeoffs</h3>
 <h2 id="vale-a-pena-usar-hyperf--swoole">Vale a pena usar Hyperf + Swoole?</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="%E2%9C%85-vantagens"><img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" data-marp-twemoji=""/> Vantagens</h3>
 <ul>
 <li><strong>Performance</strong>: 2x a 10x mais requisições/segundo</li>
@@ -396,7 +383,7 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 <li><strong>Familiar</strong>: sintaxe parecida com Laravel/Lumen</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="%E2%9A%A0%EF%B8%8F-desafios"><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> Desafios</h3>
 <ul>
 <li><strong>Curva de aprendizado</strong>: corrotinas, state management e ciclo de vida diferentes</li>
@@ -407,7 +394,7 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 <li><strong>Observabilidade</strong>: Muitas libs se baseiam no FPM para oferecer obsrvabilidade</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="%F0%9F%A7%A0-cuidados-com-estado-stateful"><img class="emoji" draggable="false" alt="🧠" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f9e0.svg" data-marp-twemoji=""/> Cuidados com estado (stateful)</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// <img class="emoji" draggable="false" alt="❌" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/274c.svg" data-marp-twemoji=""/> Problema: variável estática persiste entre requisições</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserContext</span> </span>{
@@ -425,7 +412,7 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="%F0%9F%A4%94-quando-usar"><img class="emoji" draggable="false" alt="🤔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f914.svg" data-marp-twemoji=""/> Quando usar?</h3>
 <table>
 <thead>
@@ -462,11 +449,11 @@ SWOOLE_BASE:    Velocidade &gt; Estabilidade
 </tbody>
 </table>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h1 id="m%C3%A3os-%C3%A0-obra">Mãos à obra</h1>
 <h2 id="criando-um-projeto-hyperf-do-zero">Criando um projeto Hyperf do zero</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="instala%C3%A7%C3%A3o">Instalação</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">composer create-project hyperf/hyperf-skeleton my-app
 
@@ -475,7 +462,7 @@ php bin/hyperf.php start
 </code></pre>
 <p><em>Servidor HTTP rodando em <code>http://0.0.0.0:9501</code></em> <img class="emoji" draggable="false" alt="🚀" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f680.svg" data-marp-twemoji=""/></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="controller">Controller</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// app/Controller/UserController.php</span>
 
@@ -501,7 +488,7 @@ php bin/hyperf.php start
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="model-eloquent">Model (Eloquent)</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// app/Model/User.php</span>
 
@@ -517,7 +504,7 @@ php bin/hyperf.php start
 </code></pre>
 <p><em>Sim, é o Eloquent que você já conhece</em> <img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" data-marp-twemoji=""/></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="migration">Migration</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// migrations/create_users_table.php</span>
 
@@ -538,7 +525,7 @@ php bin/hyperf.php start
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">php bin/hyperf.php migrate
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="seeder">Seeder</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// seeders/UserSeeder.php</span>
 
@@ -557,7 +544,7 @@ php bin/hyperf.php start
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">php bin/hyperf.php db:seed
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="middleware">Middleware</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// app/Middleware/AuthMiddleware.php</span>
 
@@ -579,7 +566,7 @@ php bin/hyperf.php start
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="inje%C3%A7%C3%A3o-de-depend%C3%AAncias">Injeção de Dependências</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// via Annotation</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span>
@@ -597,7 +584,7 @@ php bin/hyperf.php start
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="configurando-di">Configurando DI</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// config/autoload/dependencies.php</span>
 
@@ -608,10 +595,10 @@ php bin/hyperf.php start
 </code></pre>
 <p><em>Mapeamento de interface → implementação</em></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h2 id="corrotinas-na-pr%C3%A1tica">Corrotinas na prática</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="o-que-%C3%A9-uma-corrotina">O que é uma corrotina?</h3>
 <ul>
 <li>Uma <strong>função que pode ser suspensa e retomada</strong> sem bloquear a thread</li>
@@ -625,7 +612,7 @@ php bin/hyperf.php start
 <span class="hljs-comment">// ...mas o Event Loop atende outras corrotinas enquanto espera</span>
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="criando-corrotinas-com-co">Criando corrotinas com <code>co()</code></h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-keyword">use</span> <span class="hljs-keyword">function</span> <span class="hljs-title">Hyperf</span>\<span class="hljs-title">Coroutine</span>\<span class="hljs-title">co</span>;
 
@@ -640,7 +627,7 @@ php bin/hyperf.php start
 </code></pre>
 <p><em>Ideal para <strong>fire-and-forget</strong>: notificações, logs externos, webhooks</em></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="execu%C3%A7%C3%A3o-paralela-com-parallel">Execução paralela com <code>parallel()</code></h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Hyperf</span>\<span class="hljs-title">Coroutine</span>\<span class="hljs-title">Parallel</span>;
 
@@ -662,7 +649,7 @@ php bin/hyperf.php start
 </code></pre>
 <p><img class="emoji" draggable="false" alt="⚡" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a1.svg" data-marp-twemoji=""/> As 3 chamadas executam <strong>ao mesmo tempo</strong> — resultado no tempo da mais lenta</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="paralelo-vs-sequencial">Paralelo vs Sequencial</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Sequencial:
   DB    (80ms):  ████████
@@ -678,7 +665,7 @@ Com Parallel():
 </code></pre>
 <p><em>40% mais rápido sem mudar a lógica de negócio</em></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="channel-comunica%C3%A7%C3%A3o-entre-corrotinas">Channel: comunicação entre corrotinas</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Hyperf</span>\<span class="hljs-title">Engine</span>\<span class="hljs-title">Channel</span>;
 
@@ -695,7 +682,7 @@ Com Parallel():
 </code></pre>
 <p><em>Permite <strong>pipeline de dados</strong> entre corrotinas de forma segura</em></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="waitgroup-aguardar-m%C3%BAltiplas-corrotinas">WaitGroup: aguardar múltiplas corrotinas</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Hyperf</span>\<span class="hljs-title">Coroutine</span>\<span class="hljs-title">WaitGroup</span>;
 
@@ -714,7 +701,7 @@ Com Parallel():
 </code></pre>
 <p><em>Útil para processar <strong>coleções em paralelo</strong> — ex: enriquecer lista de usuários</em></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="boas-pr%C3%A1ticas-com-corrotinas">Boas práticas com corrotinas</h3>
 <p><img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" data-marp-twemoji=""/> <strong>Use <code>Parallel</code> para I/O independentes</strong> — DB, HTTP, Redis ao mesmo tempo</p>
 <p><img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" data-marp-twemoji=""/> <strong>Evite variáveis globais e estáticas</strong> — cada corrotina precisa de seu próprio contexto</p>
@@ -728,7 +715,7 @@ Com Parallel():
 <span class="hljs-variable">$user</span> = <span class="hljs-title class_">Context</span>::<span class="hljs-title function_ invoke__">get</span>(<span class="hljs-string">&#x27;auth.user&#x27;</span>);
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="armadilhas-comuns">Armadilhas comuns</h3>
 <p><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> <strong>Closures capturando <code>$this</code></strong> podem vazar referências entre corrotinas</p>
 <p><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> <strong>Bibliotecas bloqueantes</strong> (ex: <code>curl_exec</code> nativo) ainda bloqueiam a thread — use o cliente HTTP do Hyperf</p>
@@ -745,7 +732,7 @@ Com Parallel():
 });
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="59" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="laravel-x-hyperf--comparativo">Laravel x Hyperf — Comparativo</h3>
 <table>
 <thead>
@@ -784,11 +771,11 @@ Com Parallel():
 </tbody>
 </table>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="60" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h1 id="benchmark">Benchmark</h1>
 <h2 id="laravel-x-laravel-octane-x-hyperf">Laravel x Laravel Octane x Hyperf</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="61" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="59" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="cen%C3%A1rio-do-teste">Cenário do teste</h3>
 <ul>
 <li><strong>Endpoint</strong>: <code>GET /users</code> (10 registros do banco)</li>
@@ -796,7 +783,7 @@ Com Parallel():
 <li><strong>Condições</strong>: mesma máquina, mesmo banco</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="62" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="60" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="laravel-php-fpm">Laravel (PHP-FPM)</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Requests/sec:    ~500
 Avg Latency:     ~45ms
@@ -807,7 +794,7 @@ Memory/worker:   ~30MB
 <li>Nova conexão com DB a cada request</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="63" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="61" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="laravel-octane-swoole">Laravel Octane (Swoole)</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Requests/sec:    ~2.500
 Avg Latency:     ~12ms
@@ -819,7 +806,7 @@ Memory/worker:   ~50MB (persistente)
 <li><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> Cuidados com estado</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="64" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="62" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="hyperf-swoole-nativo">Hyperf (Swoole nativo)</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Requests/sec:    ~5.000+
 Avg Latency:     ~5ms
@@ -831,7 +818,7 @@ Memory/worker:   ~20MB (persistente)
 <li>Overhead mínimo</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="65" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="63" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="comparativo-visual">Comparativo visual</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Requests/sec (mais = melhor):
 
@@ -840,11 +827,11 @@ Laravel Octane: ████████████░░░░░░░░░�
 Hyperf        : █████████████████████████░░░  ~5.000+
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="66" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="64" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="%E2%9A%A0%EF%B8%8F-cuidados-com-a"><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> Cuidados com a</h3>
 <h3 id="%E2%9A%A0%EF%B8%8F-programa%C3%A7%C3%A3o-concorrente-em-php"><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> programação Concorrente em PHP</h3>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="67" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="65" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="o-problema-do-singleton">O problema do Singleton</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// <img class="emoji" draggable="false" alt="❌" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/274c.svg" data-marp-twemoji=""/> PERIGO: estado compartilhado entre requests</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AuthService</span>
@@ -859,7 +846,7 @@ Hyperf        : █████████████████████�
 </code></pre>
 <p><em>Request A define o user → Request B lê o user de A</em> <img class="emoji" draggable="false" alt="😱" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f631.svg" data-marp-twemoji=""/></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="68" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="66" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="vari%C3%A1veis-est%C3%A1ticas">Variáveis estáticas</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// <img class="emoji" draggable="false" alt="❌" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/274c.svg" data-marp-twemoji=""/> PERIGO: persiste entre requests</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cache</span>
@@ -877,7 +864,7 @@ Hyperf        : █████████████████████�
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="69" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="67" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="connection-pool">Connection Pool</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// <img class="emoji" draggable="false" alt="❌" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/274c.svg" data-marp-twemoji=""/> PERIGO: criar conexão por request</span>
 <span class="hljs-variable">$pdo</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">PDO</span>(<span class="hljs-variable">$dsn</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$pass</span>);
@@ -896,7 +883,7 @@ Hyperf        : █████████████████████�
 ];
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="70" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="68" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="defer-e-cleanup">Defer e Cleanup</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-php"><span class="hljs-comment">// <img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" data-marp-twemoji=""/> Garanta limpeza após a corrotina</span>
 <span class="hljs-title class_">Coroutine</span>::<span class="hljs-title function_ invoke__">create</span>(function () {
@@ -910,7 +897,7 @@ Hyperf        : █████████████████████�
 });
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="71" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="69" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="checklist-de-cuidados">Checklist de Cuidados</h3>
 <ul>
 <li><img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" data-marp-twemoji=""/> <strong>Singleton</strong>: nunca armazene estado do request</li>
@@ -921,7 +908,7 @@ Hyperf        : █████████████████████�
 <li><img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" data-marp-twemoji=""/> <strong>Defer</strong>: use <code>defer()</code> para cleanup</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="72" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="70" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="resumo">Resumo</h3>
 <ul>
 <li><img class="emoji" draggable="false" alt="🔄" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f504.svg" data-marp-twemoji=""/> Swoole traz <strong>concorrência</strong> ao PHP</li>
@@ -931,7 +918,7 @@ Hyperf        : █████████████████████�
 <li><img class="emoji" draggable="false" alt="🧠" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f9e0.svg" data-marp-twemoji=""/> Entenda o ciclo de vida <strong>antes de codar</strong></li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="73" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="71" data-theme="eudiegoborgs" lang="pt-BR" style="--theme:eudiegoborgs;">
 <h3 id="e-voc%C3%AA-o-que-acha">E você, o que acha?</h3>
 <h2 id="obrigado">Obrigado</h2>
 <p><em><code>@eudiegoborgs</code></em></p>

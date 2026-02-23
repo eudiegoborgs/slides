@@ -369,25 +369,6 @@ SWOOLE_BASE:    Velocidade > Estabilidade
 
 ---
 
-### O Inter-Proccess Communication (IPC) 
-## O Rádio entre os Processos 📻
-
----
-
-O **Reactor** (Recepcionista) está em um processo separado do **Worker** (Garçom). Eles não podem simplesmente "falar".
-
-Eles usam um **rádio (Unix Socket)**:
-
-```
-Reactor fala: "Pedido para a mesa 10"
-     │
-     └──► Unix Socket ──► Worker recebe e começa a executar
-```
-
-_Sem o rádio, o pedido nunca chegaria à cozinha_
-
----
-
 ## O que é o Hyperf?
 
 ---
