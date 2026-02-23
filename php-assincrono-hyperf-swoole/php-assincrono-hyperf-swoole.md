@@ -298,22 +298,90 @@ _Centenas de corrotinas concorrentes em uma única thread_
 
 ---
 
-### O event loop é o maestro 🎼
+## Revisão geral
+### O Swoole como restaurante de alta performance 🍽️
 
-- Cada **músico** é uma corrotina — cada um executa sua parte
-- O **maestro** é o Event Loop — não toca nenhum instrumento, só **orquestra**
-- Quando o violino precisa **aguardar** sua entrada, o regente passa a atenção para os metais
-- Quando chega a hora do violino retomar, o regente aponta para ele novamente
+---
+
+### 1. Event Loop + epoll — O Garçom e a Campainha
+
+No **PHP-FPM tradicional**, o garçom fica parado na mesa esperando o cliente decidir.
+
+No **Swoole**, o garçom entrega o cardápio e diz: _"Me avise quando estiver pronto"_ — e vai atender outras mesas.
 
 ```
-Violino   (corrotina A): ♪♪♪ ——espera—— ♪♪♪♪♪
-Metais    (corrotina B):      ♪♪♪♪ ——espera—— ♪♪♪
-Percussão (corrotina C):           ♪♪ ——espera—— ♪♪♪♪
-
-Regente (Event Loop): coordena quem toca a cada momento
+PHP-FPM:   Garçom fica parado na mesa esperando ⏳
+Swoole:    Garçom atende mesa 1, 2, 3... e volta quando chamado ⚡
 ```
 
-_Ninguém fica em silêncio à toa — o Event Loop garante que a orquestra nunca pare_
+- **Registro (I/O)**: garçom entrega o cardápio e segue em frente
+- **epoll_wait (Campainha)**: painel central na cozinha acende uma luz por mesa
+- Quando a **luz 5 acende**, o garçom sabe exatamente qual File Descriptor precisa de atenção — sem ficar perguntando mesa por mesa
+
+---
+
+### 2. Channels — A Esteira de Pratos 🍽️
+
+Imagine uma **esteira** que liga a Cozinha à Copa.
+
+- **Cozinheiro (Corrotina A)** coloca o prato na esteira e volta a cozinhar
+- Se ninguém na Copa pegar, os pratos acumulam até o **limite da esteira** (capacity)
+- **Atendente da Copa (Corrotina B)** tenta pegar um prato — se a esteira estiver vazia, ele **cochila ali mesmo**
+- Assim que um prato chega, ele **acorda automaticamente** e pega
+
+_Sem gastar CPU verificando a esteira toda hora — bloqueio inteligente_
+
+---
+
+### 3. Modos de Operação — A Estrutura do Restaurante
+
+**`SWOOLE_PROCESS` — Franquia Organizada 🏬**
+- Separação clara de cargos: atendimento ≠ cozinha
+- Se um cozinheiro se machucar, o gerente contrata outro — **restaurante não fecha**
+- ✅ Estabilidade e isolamento
+- ⚠️ Mais "burocracia" (IPC) para levar o pedido da mesa até a cozinha
+
+---
+
+### 3. Modos de Operação — A Estrutura do Restaurante
+
+**`SWOOLE_BASE` — Food Truck 🚚**
+- O cozinheiro atende, cozinha e limpa — **sem deslocamento de informação**
+- ✅ Velocidade bruta e baixa latência
+- ⚠️ Se o cozinheiro passar mal, o food truck **fecha** e quem estava na fila perde o pedido
+
+```
+SWOOLE_PROCESS: Estabilidade > Velocidade
+SWOOLE_BASE:    Velocidade > Estabilidade
+```
+
+---
+
+### 4. Hierarquia de Processos no SWOOLE PROCCESS 👥
+
+| Processo | Papel | Responsabilidade |
+|---|---|---|
+| **Master** | O Dono 🏢 | Fica no escritório — garante que tudo está de pé |
+| **Reactor Threads** | Os Recepcionistas 🚪 | Recebem conexões TCP e repassam pedidos |
+| **Manager** | O Gerente de RH 👔 | Substitui Workers que morrem |
+| **Worker** | O Garçom/Cozinheiro 🧑‍🍳 | Executa o PHP — recebe e processa os pedidos |
+| **TaskWorker** | O Delivery/Backoffice 📦 | Tarefas demoradas que não podem travar as mesas |
+
+---
+
+### 4. O IPC — O Rádio entre os Processos 📻
+
+O **Reactor** (Recepcionista) está em um processo separado do **Worker** (Garçom). Eles não podem simplesmente "falar".
+
+Eles usam um **rádio (Unix Socket)**:
+
+```
+Reactor fala: "Pedido para a mesa 10"
+     │
+     └──► Unix Socket ──► Worker recebe e começa a executar
+```
+
+_Sem o rádio, o pedido nunca chegaria à cozinha_
 
 ---
 
@@ -579,6 +647,178 @@ return [
 ```
 
 _Mapeamento de interface → implementação_
+
+---
+
+## Corrotinas na prática
+
+---
+
+### O que é uma corrotina?
+
+- Uma **função que pode ser suspensa e retomada** sem bloquear a thread
+- O Swoole transforma chamadas de I/O em **pontos de suspensão automáticos**
+- Para o desenvolvedor, o código parece **síncrono** — mas executa de forma **concorrente**
+
+```php
+// Parece síncrono...
+$user = $this->userRepository->find($id);   // suspende aqui (I/O DB)
+$orders = $this->orderService->list($user); // suspende aqui (I/O DB)
+
+// ...mas o Event Loop atende outras corrotinas enquanto espera
+```
+
+---
+
+### Criando corrotinas com `co()`
+
+```php
+use function Hyperf\Coroutine\co;
+
+// Dispara uma corrotina e continua sem esperar
+co(function () {
+    $result = $this->httpClient->get('https://api.externa.com/dados');
+    Log::info('API respondeu', ['data' => $result]);
+});
+
+// Esta linha executa imediatamente, sem esperar a corrotina acima
+return response()->json(['message' => 'processando em background']);
+```
+
+_Ideal para **fire-and-forget**: notificações, logs externos, webhooks_
+
+---
+
+### Execução paralela com `parallel()`
+
+```php
+use Hyperf\Coroutine\Parallel;
+
+$parallel = new Parallel();
+
+$parallel->add(function () {
+    return $this->userRepository->find(1); // I/O DB
+});
+
+$parallel->add(function () {
+    return $this->httpClient->get('/api/perfil'); // I/O HTTP
+});
+
+$parallel->add(function () {
+    return $this->cache->get('config:app'); // I/O Redis
+});
+
+[$user, $perfil, $config] = $parallel->wait();
+```
+
+⚡ As 3 chamadas executam **ao mesmo tempo** — resultado no tempo da mais lenta
+
+---
+
+### Paralelo vs Sequencial
+
+```
+Sequencial:
+  DB    (80ms):  ████████
+  HTTP  (150ms):         ███████████████
+  Redis (20ms):                         ██
+  Total: 250ms   ──────────────────────────►
+
+Com Parallel():
+  DB    (80ms):  ████████
+  HTTP  (150ms): ███████████████
+  Redis (20ms):  ██
+  Total: 150ms   ───────────────►
+```
+
+_40% mais rápido sem mudar a lógica de negócio_
+
+---
+
+### Channel: comunicação entre corrotinas
+
+```php
+use Hyperf\Engine\Channel;
+
+$channel = new Channel(1);
+
+// Corrotina produtora
+co(function () use ($channel) {
+    $data = $this->heavyProcessing();
+    $channel->push($data); // envia resultado
+});
+
+// Corrotina consumidora (bloqueia só ela, não a thread)
+$result = $channel->pop(); // aguarda o resultado
+```
+
+_Permite **pipeline de dados** entre corrotinas de forma segura_
+
+---
+
+### WaitGroup: aguardar múltiplas corrotinas
+
+```php
+use Hyperf\Coroutine\WaitGroup;
+
+$wg = new WaitGroup();
+$results = [];
+
+foreach ($userIds as $id) {
+    $wg->add(1);
+    co(function () use ($id, $wg, &$results) {
+        $results[$id] = $this->userRepository->find($id);
+        $wg->done();
+    });
+}
+
+$wg->wait(); // aguarda todas finalizarem
+```
+
+_Útil para processar **coleções em paralelo** — ex: enriquecer lista de usuários_
+
+---
+
+### Boas práticas com corrotinas
+
+✅ **Use `Parallel` para I/O independentes** — DB, HTTP, Redis ao mesmo tempo
+
+✅ **Evite variáveis globais e estáticas** — cada corrotina precisa de seu próprio contexto
+
+✅ **Use o `Context` do Hyperf** para dados por corrotina (ex: usuário autenticado)
+
+```php
+use Hyperf\Context\Context;
+
+// Armazena dado isolado por corrotina
+Context::set('auth.user', $user);
+
+// Recupera em qualquer ponto da mesma corrotina
+$user = Context::get('auth.user');
+```
+
+---
+
+### Armadilhas comuns
+
+⚠️ **Closures capturando `$this`** podem vazar referências entre corrotinas
+
+⚠️ **Bibliotecas bloqueantes** (ex: `curl_exec` nativo) ainda bloqueiam a thread — use o cliente HTTP do Hyperf
+
+⚠️ **Transações de banco** são vinculadas à corrotina — não compartilhe conexões entre `co()`
+
+```php
+// ❌ Errado: mesma conexão em corrotinas diferentes
+$this->db->beginTransaction();
+co(fn() => $this->db->insert(...)); // conexão diferente aqui!
+
+// ✅ Correto: toda a transação dentro da mesma corrotina
+co(function () {
+    $this->db->beginTransaction();
+    $this->db->insert(...);
+    $this->db->commit();
+});
+```
 
 ---
 
