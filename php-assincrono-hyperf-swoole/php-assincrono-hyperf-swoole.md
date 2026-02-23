@@ -369,7 +369,10 @@ SWOOLE_BASE:    Velocidade > Estabilidade
 
 ---
 
-### 4. O IPC — O Rádio entre os Processos 📻
+### O Inter-Proccess Communication (IPC) 
+## O Rádio entre os Processos 📻
+
+---
 
 O **Reactor** (Recepcionista) está em um processo separado do **Worker** (Garçom). Eles não podem simplesmente "falar".
 
