@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estamos com os dias contados? — Diego Borges</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --bg-card: #12121a;
+    --surface: #1a1a2e;
+    --border: #2a2a3e;
+    --text: #e8e8f0;
+    --text-muted: #8888a0;
+    --accent: #6c63ff;
+    --accent-light: #8b83ff;
+    --accent-glow: rgba(108, 99, 255, 0.15);
+    --warning: #ff6b6b;
+    --success: #51cf66;
+    --gold: #ffd43b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  /* ── Slide Container ── */
+  .deck {
+    width: 100%; height: 100%;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 100px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(40px);
+    overflow-y: auto;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  /* ── Typography ── */
+  h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--accent-light);
+  }
+
+  p, li {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 900px;
+  }
+
+  p + p { margin-top: 16px; }
+
+  .lead {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 800px;
+  }
+
+  .highlight {
+    color: var(--accent-light);
+    font-weight: 600;
+  }
+
+  .warn { color: var(--warning); font-weight: 600; }
+  .ok { color: var(--success); font-weight: 600; }
+
+  strong { color: var(--text); font-weight: 600; }
+
+  em { color: var(--text-muted); font-style: italic; }
+
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 20px 0;
+    background: var(--accent-glow);
+    border-radius: 0 8px 8px 0;
+    max-width: 800px;
+  }
+
+  blockquote p {
+    color: var(--text);
+    font-size: 1.15rem;
+    font-style: italic;
+  }
+
+  ul { list-style: none; padding: 0; margin: 16px 0; }
+
+  ul li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+  }
+
+  ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ── Special layouts ── */
+  .title-slide {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+  }
+
+  .title-slide h1 {
+    font-size: 3.8rem;
+    background: linear-gradient(135deg, var(--accent-light), #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    max-width: 900px;
+  }
+
+  .title-slide .subtitle {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    margin-top: 16px;
+    font-weight: 300;
+  }
+
+  .title-slide .author {
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+
+  .col h3 { margin-bottom: 16px; }
+
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    margin: 20px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline .step {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .timeline .step::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .timeline .step-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1.1rem;
+  }
+
+  .timeline .step-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+
+  .big-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 60px;
+    margin: 30px 0;
+  }
+
+  .code-block {
+    background: #0d0d14;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 16px 0;
+    max-width: 700px;
+    white-space: pre;
+    line-height: 1.6;
+  }
+
+  .code-block .kw { color: var(--accent-light); }
+  .code-block .cm { color: #555; }
+  .code-block .ok { color: var(--success); }
+  .code-block .err { color: var(--warning); }
+
+  table {
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 1rem;
+  }
+
+  th, td {
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  th {
+    color: var(--accent-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: var(--accent-glow);
+    color: var(--accent-light);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+  }
+
+  .section-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .nav-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+    background: var(--accent-glow);
+  }
+
+  .nav-counter {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  /* ── Progress bar ── */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #a78bfa);
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* ── Scroll hint ── */
+  .scroll-hint {
+    position: fixed;
+    bottom: 30px;
+    left: 40px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+  }
+
+  /* ── Incident cards ── */
+  .incident-card {
+    background: rgba(255, 107, 107, 0.06);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    max-width: 850px;
+  }
+
+  .incident-card .ic-title {
+    font-weight: 600;
+    color: var(--warning);
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .incident-card .ic-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .slide { padding: 40px 32px; }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.8rem; }
+    .title-slide h1 { font-size: 2.6rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .stats-row { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 1: TITLE -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide title-slide active">
+    <h1>Estamos com os dias contados?</h1>
+    <p class="subtitle">A evolução das IAs e o futuro do trabalho humano</p>
+    <p class="author">Diego Borges · @eudiegoborgs · 2026</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 2: CONTEXT -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Contexto</div>
+    <h2>De vibe coding a agentes autônomos</h2>
+    <p class="lead">Em 2025, a discussão girava em torno de ferramentas de <em>vibe coding</em> — v0, Cursor, Lovable. Em 2026, a conversa mudou de nível.</p>
+
+    <div class="stats-row">
+      <div>
+        <div class="big-number">25%</div>
+        <div class="stat-label">das startups YC Winter '25<br>com codebases 95% geradas por IA</div>
+      </div>
+      <div>
+        <div class="big-number">5</div>
+        <div class="stat-label">modelos transformadores em 2026:<br>Mythos, Gemini 3, GPT-5.4, Codex, Cowork</div>
+      </div>
+    </div>
+
+    <p>O hype migrou de <strong>"IA que sugere código"</strong> para <span class="highlight">"IA que executa tarefas end-to-end"</span>.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 3: CHANGE IS INEVITABLE -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Perspectiva histórica</div>
+    <h2>A mudança é inevitável.<br>Evolução é opcional.</h2>
+    <p class="lead" style="margin-bottom: 28px;">A necessidade por profissionais excelentes <strong>nunca desaparece</strong>. São os medianos que correm risco.</p>
+
+    <ul>
+      <li><strong>Prensa de Gutenberg</strong> — copiadores de livros sumiram. Mas especialistas em caligrafia ainda existem — e cobram caro.</li>
+      <li><strong>Automóveis</strong> — cocheiros perderam espaço. Mas os melhores motoristas hoje dirigem veículos que os cocheiros nem sonhavam.</li>
+      <li><strong>Internet</strong> — locadoras morreram. Mas influencers de cinema são uma das categorias mais antigas da internet.</li>
+    </ul>
+
+    <blockquote>
+      <p>A tecnologia não elimina a necessidade humana — ela elimina o meio ineficiente de atendê-la. Quem se apega ao meio, desaparece. Quem entende a necessidade, evolui.</p>
+    </blockquote>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 4: END OF REPETITIVE -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Transformação</div>
+    <h2>Não é o fim do trabalho.<br>É o fim do repetitivo.</h2>
+
+    <p class="lead">Se você só replica estilos de desenhos em fotos, faz CRUD sem pensar em UX, ou não pensa em formas de entregar um trabalho melhor — <span class="warn">seus dias estão contados</span>.</p>
+
+    <p style="margin-top: 24px;">O mercado está exigindo um nível mais alto de entrega — mais criativo, mais estratégico, <strong>mais humano</strong>.</p>
+
+    <blockquote>
+      <p>A inteligência artificial está forçando o mercado a valorizar mais a inteligência humana.</p>
+    </blockquote>
+
+    <p>Pensamento crítico, empatia no design, a capacidade de traduzir uma necessidade vaga em algo concreto — essas habilidades nunca foram tão valiosas.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 5: AI HAS NO SOUL -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Criatividade</div>
+    <h2>A IA ainda não tem alma</h2>
+
+    <blockquote>
+      <p>"Se acaba os ilustradores reais, as máquinas vão se alimentar só do que já existe e só aí vão perceber que ela não cria nada."<br><span style="font-style: normal; font-size: 0.9rem; color: var(--text-muted);">— @rafaelmarcal</span></p>
+    </blockquote>
+
+    <p class="lead" style="margin-top: 24px;">Quantas músicas dá pra tocar com <code style="background: var(--surface); padding: 2px 8px; border-radius: 4px;">G, D, Em, C</code>? Centenas. Uma IA gera uma delas em segundos.</p>
+
+    <p>Mas será que ela consegue fazer o que Lenine fez em "Todas elas juntas num só ser" — costurando referências de Jacques Brel, Martinho da Vila, Chuck Berry, Paulinho da Viola e Caymmi num mesmo verso, com humor, afeto e malícia que só existe em quem <strong>viveu</strong> essas referências?</p>
+
+    <p style="margin-top: 20px;">A IA opera por <strong>correlação estatística</strong>. Ela não sente a tensão de um acorde menor. Não entende o peso de uma pausa no verso certo. <span class="highlight">Arte é expressão — e isso a IA continua longe de fazer.</span></p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 6: ROYALTIES -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Direitos Autorais</div>
+    <h2>A questão dos royalties</h2>
+    <p class="lead" style="margin-bottom: 24px;">Os modelos foram treinados com bilhões de obras — muitas sem autorização. Em 2025-2026, virou guerra judicial.</p>
+
+    <div class="two-col">
+      <div class="col">
+        <h3>Processos em andamento</h3>
+        <ul>
+          <li><strong>New York Times</strong> vs OpenAI — teste decisivo de <em>fair use</em></li>
+          <li><strong>GEMA</strong> (Alemanha) ganhou contra OpenAI — letras reproduzidas quase identicamente</li>
+          <li><strong>Disney + NBCUniversal</strong> vs Midjourney — "poço sem fundo de plágio"</li>
+          <li><strong>Anthropic</strong> ofereceu US$ 1,5B em acordo — juiz rejeitou como insuficiente</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>O que os governos fazem</h3>
+        <ul>
+          <li><strong>EU AI Act</strong> — transparência obrigatória, multas de até 7% do faturamento</li>
+          <li><strong>EUA</strong> — desregulamentação sob Trump, foco em competição com China</li>
+          <li><strong>Copyright Office</strong> — obras geradas exclusivamente por IA não têm copyright</li>
+        </ul>
+        <p style="margin-top: 12px; font-size: 1rem;">Deezer estima <strong>50K músicas IA/dia</strong> enviadas à plataforma — 70% dos streams são fraudulentos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 7: STILL NEED TO CODE -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Mito vs Realidade</div>
+    <h2>Não precisa mais saber desenvolver?</h2>
+    <p class="lead"><span class="warn">Essa conclusão não poderia estar mais errada.</span></p>
+
+    <p style="margin: 20px 0;">O que está acontecendo é uma <strong>nova camada de abstração</strong> — um padrão que se repete:</p>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="step-title">Cartões perfurados → Assembly</div>
+        <div class="step-desc">Ninguém mais perfura cartões, mas entender lógica de máquina seguiu essencial.</div>
+      </div>
+      <div class="step">
+        <div class="step-title">Assembly → Linguagens de alto nível</div>
+        <div class="step-desc">Os melhores devs ainda entendem o que acontece debaixo do capô.</div>
+      </div>
+      <div class="step">
+        <div class="step-title">Código → Linguagem natural com IA</div>
+        <div class="step-desc">O nível subiu, mas a necessidade de fundamento técnico permanece.</div>
+      </div>
+    </div>
+
+    <p><strong>A IA criou um nível mais humanizado de escrita de código.</strong> Mas assim como a transição de Assembly pra Java não eliminou a lógica computacional, a transição pra linguagem natural não elimina a engenharia de software.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 8: WHO VALIDATES -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Mito vs Realidade</div>
+    <h2>Quem transforma código plausível<br>em código confiável?</h2>
+
+    <p class="lead" style="margin-bottom: 24px;">Quando você pede pra uma IA "criar uma API REST com autenticação", ela gera algo que funciona. Mas...</p>
+
+    <ul>
+      <li>Quem valida se a autenticação é segura?</li>
+      <li>Quem identifica que o token não está sendo invalidado no logout?</li>
+      <li>Quem percebe que o rate limiting está ausente?</li>
+      <li>Quem garante que o serviço não vai cair sob carga?</li>
+    </ul>
+
+    <p style="margin-top: 24px; font-size: 1.3rem; color: var(--text);"><strong>O desenvolvedor com base sólida.</strong></p>
+
+    <p>O que mudou é o perfil: menos <em>digitador de código</em>, mais <span class="highlight">arquiteto de soluções</span>. Menos executor, mais <span class="highlight">pensador crítico</span>.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 9: ECOSYSTEM - AGENTS.md & Skills -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Ecossistema Técnico</div>
+    <h2>AGENTS.md & Skills</h2>
+
+    <div class="two-col">
+      <div class="col">
+        <h3>AGENTS.md — o problema</h3>
+        <ul>
+          <li><strong>Context window</strong> — 2.000 linhas consomem espaço demais</li>
+          <li><strong>Instruções vagas</strong> amplificam alucinações</li>
+          <li><strong>Obsolescência silenciosa</strong> — regras ficam desatualizadas</li>
+        </ul>
+        <p style="margin-top: 12px; font-size: 0.95rem;">Não é inútil — é insuficiente como solução única. Mantenha &lt; 500 linhas.</p>
+      </div>
+      <div class="col">
+        <h3>Skills — a evolução</h3>
+        <p style="margin-bottom: 12px; font-size: 1rem; color: var(--text);"><strong>Progressive disclosure</strong> — carrega conhecimento sob demanda.</p>
+        <table style="width: 100%;">
+          <tr><th></th><th>AGENTS.md</th><th>Skills</th></tr>
+          <tr><td>Ativação</td><td>Sempre</td><td>Sob demanda</td></tr>
+          <tr><td>Escopo</td><td>1 projeto</td><td>Cross-projeto</td></tr>
+          <tr><td>Conteúdo</td><td>Markdown</td><td>MD + scripts + SQL</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 10: ECOSYSTEM - Agents & MCP -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Ecossistema Técnico</div>
+    <h2>Agentes & MCP</h2>
+
+    <div class="two-col">
+      <div class="col">
+        <h3>Agentes — além do chat</h3>
+        <p style="font-size: 1rem; color: var(--text); margin-bottom: 12px;">O loop de um agente:</p>
+        <div class="timeline">
+          <div class="step"><div class="step-title">Recebe tarefa</div></div>
+          <div class="step"><div class="step-title">Planeja abordagem</div></div>
+          <div class="step"><div class="step-title">Executa ação</div><div class="step-desc">Lê arquivo, roda comando, chama API</div></div>
+          <div class="step"><div class="step-title">Observa resultado</div></div>
+          <div class="step"><div class="step-title">Decide: concluiu ou repete?</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <h3>MCP — o USB-C dos agentes</h3>
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 16px;">Model Context Protocol — protocolo open-source que padroniza como IA se conecta a sistemas externos.</p>
+        <p style="font-size: 1rem; color: var(--text-muted);"><strong>Antes:</strong> cada integração era customizada. IA × Jira = plugin. IA × GitHub = outro plugin.</p>
+        <p style="font-size: 1rem; color: var(--text-muted); margin-top: 12px;"><strong>Com MCP:</strong> JSON-RPC 2.0. Um server expõe <span class="pill">tools</span> <span class="pill">resources</span> <span class="pill">prompts</span>. Qualquer host compatível conecta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 11: ECOSYSTEM - RAG & SDD -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Ecossistema Técnico</div>
+    <h2>RAG & Spec-Driven Development</h2>
+
+    <div class="two-col">
+      <div class="col">
+        <h3>RAG — prova com consulta</h3>
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 12px;">Retrieval-Augmented Generation injeta conhecimento externo em tempo de query.</p>
+        <div class="timeline">
+          <div class="step"><div class="step-title">Indexação</div><div class="step-desc">Docs → chunks → embeddings → vector DB</div></div>
+          <div class="step"><div class="step-title">Busca</div><div class="step-desc">Query → embedding → similaridade → top-K</div></div>
+          <div class="step"><div class="step-title">Geração</div><div class="step-desc">Chunks no prompt → LLM responde com contexto</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <h3>SDD — spec como fonte da verdade</h3>
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 12px;">O agente lê a spec e implementa, em vez de interpretar um ticket vagamente.</p>
+        <div class="timeline">
+          <div class="step"><div class="step-title">Discovery / Planning</div></div>
+          <div class="step"><div class="step-title">Architecture — contratos e interfaces</div></div>
+          <div class="step"><div class="step-title">DoR Gate — spec completa?</div></div>
+          <div class="step"><div class="step-title">Implementation — batches deployáveis</div></div>
+          <div class="step"><div class="step-title">Review + DoD Gate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 12: HARNESS -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Ecossistema Técnico</div>
+    <h2>Harness & Fitness Functions</h2>
+    <p class="lead">Código gerado por IA é probabilístico. Confiar cegamente no output é tão irresponsável quanto fazer deploy sem testes.</p>
+
+    <div class="code-block"><span class="kw">Agente gera código</span>
+    <span class="cm">→</span> Harness executa fitness functions
+        <span class="cm">→</span> Se passou: <span class="ok">✓ merge</span>
+        <span class="cm">→</span> Se falhou: <span class="err">✗ feedback → agente itera</span></div>
+
+    <p style="margin-top: 16px;"><strong>Fitness Functions</strong> — avaliação objetiva de características arquiteturais:</p>
+    <ul>
+      <li>Cobertura de testes ≥ 80%</li>
+      <li>Zero findings críticos de segurança (SAST)</li>
+      <li>Complexidade ciclomática ≤ 10</li>
+      <li>Zero secrets no código</li>
+      <li>Compatibilidade retroativa de API</li>
+    </ul>
+
+    <p style="margin-top: 16px;">LLMs não têm memória arquitetural. Fitness functions transformam decisões em <span class="highlight">regras executáveis e verificáveis</span>.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 13: PERSONAL AI ASSISTANTS -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Além do IDE</div>
+    <h2>Assistentes pessoais de IA</h2>
+    <p class="lead">Em 2026, os mesmos conceitos — agentes, MCP, skills, memória — saíram do IDE e foram para a vida inteira.</p>
+
+    <div class="two-col">
+      <div class="col">
+        <h3>OpenClaw — o agente que age</h3>
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 12px;">Projeto open-source de <strong>@steipete</strong>. Roda <strong>localmente na sua máquina</strong>, acessível via WhatsApp, Telegram ou Discord.</p>
+        <ul>
+          <li><strong>Memória persistente</strong> — contexto acumula entre sessões</li>
+          <li><strong>Skills extensíveis</strong> — cria skills sozinho quando percebe padrão</li>
+          <li><strong>Heartbeats proativos</strong> — te procura com alertas e lembretes</li>
+          <li><strong>Execução real</strong> — limpa inbox, agenda reuniões, abre PRs, controla IoT</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>O modelo muda tudo</h3>
+        <blockquote style="margin: 0 0 16px 0;">
+          <p style="font-size: 1rem;">"É um modelo inteligente com olhos e mãos, sentado numa mesa com teclado e mouse. Você manda mensagem como se fosse um colega de trabalho."</p>
+        </blockquote>
+        <p style="font-size: 1rem; color: var(--text-muted);">Seus dados, suas skills, sua memória — <strong>tudo na sua máquina</strong>. Num mundo onde toda big tech quer seus dados na nuvem, isso é uma declaração de princípio.</p>
+        <p style="font-size: 1rem; color: var(--text); margin-top: 12px;">O futuro não é um agente genérico na nuvem. É <span class="highlight">um agente personalizado, com conhecimento do seu contexto, rodando no seu ambiente, sob seu controle</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 14: LIMITS -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Limites</div>
+    <h2>O que ainda não funciona</h2>
+    <p class="lead" style="margin-bottom: 20px;">Só deu certo quando eu sabia exatamente o que queria fazer.</p>
+
+    <p>Desenvolvi um app de gestão de <strong>pelada</strong> — e a IA não conseguiu implementar troca de times. Quem perde sai, quem tá esperando entra, goleiro é fixo, se tem muita gente faz rodízio. <em>Todo brasileiro sabe. A IA não.</em></p>
+
+    <p style="margin-top: 16px;">Como funciona um self-service? Uma partida de truco em Minas? Oferecer café pras visitas? São coisas que <strong>ninguém precisa te explicar</strong> — você aprendeu vivendo.</p>
+
+    <blockquote>
+      <p>A IA processa texto, não experiência. O trabalho intelectual, de entendimento cultural, de contexto humano, ainda é insubstituível.</p>
+    </blockquote>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 14: INCIDENTS -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Alertas</div>
+    <h2>Os incidentes que ninguém fala</h2>
+
+    <div class="incident-card">
+      <div class="ic-title">Amazon Kiro — 13h de indisponibilidade</div>
+      <div class="ic-desc">Engenheiros AWS deixaram o agente resolver um problema sem supervisão. Ele decidiu deletar e recriar o ambiente.</div>
+    </div>
+
+    <div class="incident-card">
+      <div class="ic-title">Claude Code — banco de produção deletado</div>
+      <div class="ic-desc">Substituiu o state file do Terraform por versão antiga, executou <code>terraform destroy</code>. 2,5 anos de dados perdidos — incluindo backups.</div>
+    </div>
+
+    <div class="incident-card">
+      <div class="ic-title">Replit — dados de 1.200 empresas impactados</div>
+      <div class="ic-desc">Agente deletou banco de produção durante code freeze explícito.</div>
+    </div>
+
+    <div class="incident-card">
+      <div class="ic-title">Cursor "Plan Mode" — 70 arquivos deletados</div>
+      <div class="ic-desc">Modo projetado pra prevenir execução. Ignorou instrução explícita de "NÃO EXECUTE NADA".</div>
+    </div>
+
+    <p style="margin-top: 16px;">O agente <strong>não estava com defeito</strong> — estava cumprindo seu objetivo da forma mais eficiente. O problema é que o <span class="warn">escopo de ação não foi restringido fora do agente</span>.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 15: IMPACT -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide">
+    <div class="section-tag">Impacto</div>
+    <h2>Vai além do código</h2>
+
+    <ul>
+      <li><strong>Desenvolvedores</strong> — o dev que só escreve código sem entender o problema já era substituível antes da IA. O dev do futuro é um <span class="highlight">arquiteto que conversa com máquinas</span>.</li>
+      <li><strong>Artistas</strong> — a IA transforma esboços em arte final. O artista se torna <span class="highlight">diretor criativo</span>, não operador de ferramenta.</li>
+      <li><strong>Profissões intelectuais</strong> — nutricionistas, advogados e outros ganham <span class="highlight">escala sem perder profundidade</span>.</li>
+      <li><strong>Novos postos de trabalho</strong> — toda revolução tecnológica criou mais empregos do que destruiu. Mas o período de transição é brutal pra quem não se adapta.</li>
+    </ul>
+
+    <p style="margin-top: 24px;">Políticas de requalificação e educação continuada precisam acompanhar essa velocidade.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 16: CONCLUSION -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide title-slide">
+    <h1 style="font-size: 3rem;">Use IA como alavanca,<br>não como muleta.</h1>
+
+    <p class="lead" style="text-align: center; margin-top: 24px; max-width: 700px;">A pergunta certa não é "a IA vai roubar meu emprego?" — é<br><span class="highlight" style="font-size: 1.6rem;">"o que eu faço que uma IA não consegue?"</span></p>
+
+    <p style="text-align: center; margin-top: 32px; font-size: 1.15rem; color: var(--text-muted);">Se a resposta for "nada" ou "não sei", esse é o sinal — não pra entrar em pânico,<br>mas pra investir em si mesmo.</p>
+
+    <p class="author" style="margin-top: 48px;">Diego Borges · <a href="https://twitter.com/eudiegoborgs" style="color: var(--accent-light); text-decoration: none;">@eudiegoborgs</a></p>
+  </div>
+
+</div>
+
+<!-- ── Navigation ── -->
+<div class="nav">
+  <button class="nav-btn" id="prev" aria-label="Slide anterior">‹</button>
+  <span class="nav-counter" id="counter">1 / 17</span>
+  <button class="nav-btn" id="next" aria-label="Próximo slide">›</button>
+</div>
+
+<div class="scroll-hint">← → para navegar</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const total = slides.length;
+  let current = 0;
+
+  function go(n) {
+    if (n < 0 || n >= total || n === current) return;
+    const fwd = n > current;
+    const old = slides[current];
+    const nxt = slides[n];
+
+    // 1. Remove active from old
+    old.classList.remove('active');
+    old.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    old.style.opacity = '0';
+    old.style.transform = fwd ? 'translateX(-40px)' : 'translateX(40px)';
+
+    // 2. Prepare new slide off-screen (no transition yet)
+    nxt.style.transition = 'none';
+    nxt.style.opacity = '0';
+    nxt.style.transform = fwd ? 'translateX(40px)' : 'translateX(-40px)';
+
+    // 3. Force reflow then animate in
+    void nxt.offsetWidth;
+    nxt.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    nxt.classList.add('active');
+    nxt.style.opacity = '1';
+    nxt.style.transform = 'translateX(0)';
+
+    // 4. Clean up old slide after transition
+    setTimeout(() => {
+      old.style.transition = 'none';
+      old.style.opacity = '';
+      old.style.transform = '';
+    }, 520);
+
+    current = n;
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      go(current + 1);
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      go(current - 1);
+    }
+    if (e.key === 'Home') { e.preventDefault(); go(0); }
+    if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+  });
+
+  document.getElementById('next').addEventListener('click', () => go(current + 1));
+  document.getElementById('prev').addEventListener('click', () => go(current - 1));
+
+  // Touch support
+  let touchX = 0;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) go(current + (dx < 0 ? 1 : -1));
+  });
+
+  // Init
+  progress.style.width = (1 / total * 100) + '%';
+})();
+</script>
+
+</body>
+</html>
