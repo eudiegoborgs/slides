@@ -410,6 +410,20 @@
     .two-col { grid-template-columns: 1fr; }
     .stats-row { flex-direction: column; gap: 20px; }
   }
+
+  /* ── Fragment build (progressive reveal) ── */
+  .frag {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+  }
+
+  .frag.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 </style>
 </head>
 <body>
@@ -428,7 +442,42 @@
   </div>
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!-- SLIDE 2: CONTEXT -->
+  <!-- SLIDE 2: ABOUT ME -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide about-slide">
+    <div style="display: flex; gap: 60px; align-items: flex-start; width: 100%;">
+      <div style="flex: 1;">
+        <h2 style="margin-bottom: 24px;">oi, eu sou o Diego</h2>
+        <ul>
+          <li class="frag">mineiro, de <strong>Belorizonti</strong> <em>(oncovim)</em></li>
+          <li class="frag">pai do <strong>Bryan</strong>, do <strong>Arthur</strong> e da <strong>Emily</strong></li>
+          <li class="frag">esposo da <strong>Stéfanny</strong></li>
+          <li class="frag"><strong>músico</strong> de garagem</li>
+          <li class="frag"><strong>desenvolvedor</strong> desde 2011</li>
+          <li class="frag">tech manager de um <strong>time incrível</strong></li>
+          <li class="frag">e muitas outras coisas...</li>
+        </ul>
+      </div>
+      <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 16px; align-items: center;">
+        <img src="./assets/diego.jpeg" alt="Diego Borges" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent);">
+        <div style="display: flex; gap: 12px;">
+          <img src="./assets/familia.jpeg" alt="Família" style="width: 120px; height: 160px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border);">
+          <img src="./assets/equipe.jpeg" alt="Equipe" style="width: 180px; height: 160px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border);">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 3: DISCLAIMER -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="slide" style="text-align: center; align-items: center;">
+    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; font-style: italic;">antes de começar quero dizer que...</p>
+    <h2 style="font-size: 1.8rem; line-height: 1.6; max-width: 750px;"><code style="background: var(--surface); padding: 2px 10px; border-radius: 4px;">tudo o que eu disser</code> durante essa apresentação é a <code style="background: var(--surface); padding: 2px 10px; border-radius: 4px;">minha verdade</code>, baseado em <code style="background: var(--surface); padding: 2px 10px; border-radius: 4px;">minha experiência</code>, mas pode se tornar verdade para você se fizer sentido</h2>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SLIDE 4: CONTEXT -->
   <!-- ══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="section-tag">Contexto</div>
@@ -458,9 +507,9 @@
     <p class="lead" style="margin-bottom: 28px;">A necessidade por profissionais excelentes <strong>nunca desaparece</strong>. São os medianos que correm risco.</p>
 
     <ul>
-      <li><strong>Prensa de Gutenberg</strong> — copiadores de livros sumiram. Mas especialistas em caligrafia ainda existem — e cobram caro.</li>
-      <li><strong>Automóveis</strong> — cocheiros perderam espaço. Mas os melhores motoristas hoje dirigem veículos que os cocheiros nem sonhavam.</li>
-      <li><strong>Internet</strong> — locadoras morreram. Mas influencers de cinema são uma das categorias mais antigas da internet.</li>
+      <li class="frag"><strong>Prensa de Gutenberg</strong> — copiadores de livros sumiram. Mas especialistas em caligrafia ainda existem — e cobram caro.</li>
+      <li class="frag"><strong>Automóveis</strong> — cocheiros perderam espaço. Mas os melhores motoristas hoje dirigem veículos que os cocheiros nem sonhavam.</li>
+      <li class="frag"><strong>Internet</strong> — locadoras morreram. Mas influencers de cinema são uma das categorias mais antigas da internet.</li>
     </ul>
 
     <blockquote>
@@ -572,10 +621,10 @@
     <p class="lead" style="margin-bottom: 24px;">Quando você pede pra uma IA "criar uma API REST com autenticação", ela gera algo que funciona. Mas...</p>
 
     <ul>
-      <li>Quem valida se a autenticação é segura?</li>
-      <li>Quem identifica que o token não está sendo invalidado no logout?</li>
-      <li>Quem percebe que o rate limiting está ausente?</li>
-      <li>Quem garante que o serviço não vai cair sob carga?</li>
+      <li class="frag">Quem valida se a autenticação é segura?</li>
+      <li class="frag">Quem identifica que o token não está sendo invalidado no logout?</li>
+      <li class="frag">Quem percebe que o rate limiting está ausente?</li>
+      <li class="frag">Quem garante que o serviço não vai cair sob carga?</li>
     </ul>
 
     <p style="margin-top: 24px; font-size: 1.3rem; color: var(--text);"><strong>O desenvolvedor com base sólida.</strong></p>
@@ -782,10 +831,10 @@
     <h2>Vai além do código</h2>
 
     <ul>
-      <li><strong>Desenvolvedores</strong> — o dev que só escreve código sem entender o problema já era substituível antes da IA. O dev do futuro é um <span class="highlight">arquiteto que conversa com máquinas</span>.</li>
-      <li><strong>Artistas</strong> — a IA transforma esboços em arte final. O artista se torna <span class="highlight">diretor criativo</span>, não operador de ferramenta.</li>
-      <li><strong>Profissões intelectuais</strong> — nutricionistas, advogados e outros ganham <span class="highlight">escala sem perder profundidade</span>.</li>
-      <li><strong>Novos postos de trabalho</strong> — toda revolução tecnológica criou mais empregos do que destruiu. Mas o período de transição é brutal pra quem não se adapta.</li>
+      <li class="frag"><strong>Desenvolvedores</strong> — o dev que só escreve código sem entender o problema já era substituível antes da IA. O dev do futuro é um <span class="highlight">arquiteto que conversa com máquinas</span>.</li>
+      <li class="frag"><strong>Artistas</strong> — a IA transforma esboços em arte final. O artista se torna <span class="highlight">diretor criativo</span>, não operador de ferramenta.</li>
+      <li class="frag"><strong>Profissões intelectuais</strong> — nutricionistas, advogados e outros ganham <span class="highlight">escala sem perder profundidade</span>.</li>
+      <li class="frag"><strong>Novos postos de trabalho</strong> — toda revolução tecnológica criou mais empregos do que destruiu. Mas o período de transição é brutal pra quem não se adapta.</li>
     </ul>
 
     <p style="margin-top: 24px;">Políticas de requalificação e educação continuada precisam acompanhar essa velocidade.</p>
@@ -809,7 +858,7 @@
 <!-- ── Navigation ── -->
 <div class="nav">
   <button class="nav-btn" id="prev" aria-label="Slide anterior">‹</button>
-  <span class="nav-counter" id="counter">1 / 17</span>
+  <span class="nav-counter" id="counter">1 / 19</span>
   <button class="nav-btn" id="next" aria-label="Próximo slide">›</button>
 </div>
 
@@ -823,31 +872,66 @@
   const total = slides.length;
   let current = 0;
 
-  function go(n) {
-    if (n < 0 || n >= total || n === current) return;
-    const fwd = n > current;
+  // ── Fragment helpers ──
+  function getFrags(slide) {
+    return Array.from(slide.querySelectorAll('.frag'));
+  }
+
+  function visibleFragCount(slide) {
+    return getFrags(slide).filter(f => f.classList.contains('visible')).length;
+  }
+
+  function revealNext(slide) {
+    const frags = getFrags(slide);
+    const next = frags.find(f => !f.classList.contains('visible'));
+    if (next) { next.classList.add('visible'); return true; }
+    return false;
+  }
+
+  function hideLastFrag(slide) {
+    const visible = getFrags(slide).filter(f => f.classList.contains('visible'));
+    if (visible.length > 0) {
+      visible[visible.length - 1].classList.remove('visible');
+      return true;
+    }
+    return false;
+  }
+
+  function revealAllFrags(slide) {
+    getFrags(slide).forEach(f => f.classList.add('visible'));
+  }
+
+  function hideAllFrags(slide) {
+    getFrags(slide).forEach(f => f.classList.remove('visible'));
+  }
+
+  // ── Slide transition ──
+  function goSlide(n, fwd) {
     const old = slides[current];
     const nxt = slides[n];
 
-    // 1. Remove active from old
     old.classList.remove('active');
     old.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     old.style.opacity = '0';
     old.style.transform = fwd ? 'translateX(-40px)' : 'translateX(40px)';
 
-    // 2. Prepare new slide off-screen (no transition yet)
     nxt.style.transition = 'none';
     nxt.style.opacity = '0';
     nxt.style.transform = fwd ? 'translateX(40px)' : 'translateX(-40px)';
 
-    // 3. Force reflow then animate in
+    // When going back, show all frags; when going forward, hide all
+    if (fwd) {
+      hideAllFrags(nxt);
+    } else {
+      revealAllFrags(nxt);
+    }
+
     void nxt.offsetWidth;
     nxt.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     nxt.classList.add('active');
     nxt.style.opacity = '1';
     nxt.style.transform = 'translateX(0)';
 
-    // 4. Clean up old slide after transition
     setTimeout(() => {
       old.style.transition = 'none';
       old.style.opacity = '';
@@ -859,28 +943,46 @@
     progress.style.width = ((current + 1) / total * 100) + '%';
   }
 
+  // ── Navigation (fragments first, then slide) ──
+  function advance() {
+    const slide = slides[current];
+    // If there are unrevealed fragments, reveal next one
+    if (revealNext(slide)) return;
+    // Otherwise go to next slide
+    if (current + 1 < total) goSlide(current + 1, true);
+  }
+
+  function retreat() {
+    const slide = slides[current];
+    // If there are visible fragments, hide last one
+    if (hideLastFrag(slide)) return;
+    // Otherwise go to previous slide
+    if (current - 1 >= 0) goSlide(current - 1, false);
+  }
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
       e.preventDefault();
-      go(current + 1);
+      advance();
     }
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
       e.preventDefault();
-      go(current - 1);
+      retreat();
     }
-    if (e.key === 'Home') { e.preventDefault(); go(0); }
-    if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goSlide(0, false); }
+    if (e.key === 'End') { e.preventDefault(); goSlide(total - 1, true); }
   });
 
-  document.getElementById('next').addEventListener('click', () => go(current + 1));
-  document.getElementById('prev').addEventListener('click', () => go(current - 1));
+  document.getElementById('next').addEventListener('click', advance);
+  document.getElementById('prev').addEventListener('click', retreat);
 
   // Touch support
   let touchX = 0;
   document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
   document.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 50) go(current + (dx < 0 ? 1 : -1));
+    if (dx < -50) advance();
+    if (dx > 50) retreat();
   });
 
   // Init
